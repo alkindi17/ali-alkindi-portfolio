@@ -1,28 +1,56 @@
 import Image from "next/image"
 import { Enriqueta } from "next/font/google"
-import { useEffect, useState, useRef, useLayoutEffect} from "react"
+import { useLayoutEffect, useRef} from "react"
 import gsap, {Power3} from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import SplitType from "split-type";
 
 const oleoScript = Enriqueta({ weight: '700', subsets: ['latin'] })
 
 export default function HomeSection() {
     
     gsap.registerPlugin(ScrollTrigger);
+    const tl = useRef();
 
     useLayoutEffect(() => {
-            gsap.from("#home", {
-                x: -50, 
-                opacity: 0.1, 
+        
+        new SplitType('#home-text-line-1');
+        new SplitType('#home-text-line-2');
+        new SplitType('#home-text-line-3');
+
+        tl.current = gsap.timeline({scrollTrigger: {
+            trigger: "#home",
+            markers: false,
+            scroller: ".overflow-scroll",
+            toggleActions: "restart reset restart reset",
+        }})
+            .from("#peep-1", {
+                y: 50, 
+                opacity: 0, 
                 duration: 1.5, 
+                ease: Power3.easeOut
+            })
+            .from("#home-text-line-1 .char", {
+                y: 50,
+                opacity: 0,
+                duration: 1.5,
                 ease: Power3.easeOut,
-                scrollTrigger: {
-                    trigger: "#home",
-                    markers: false,
-                    scroller: ".overflow-scroll",
-                    toggleActions: "restart reset restart reverse",
-                }
-            })    
+                stagger: 0.02
+                }, "-=1")
+            .from("#home-text-line-2 .char", {
+                y: 50,
+                opacity: 0,
+                duration: 1.5,
+                ease: Power3.easeOut,
+                stagger: 0.02
+                }, "-=1")
+            .from("#home-text-line-3 .char", {    
+                y: 50,
+                opacity: 0,
+                duration: 1.5,
+                ease: Power3.easeOut,
+                stagger: 0.02
+                }, "-=1")
       }, []);
 
     
@@ -38,9 +66,9 @@ export default function HomeSection() {
 
                 {/* Text */}
                 <div id="home-text" className="h-full">
-                    <p className="text-2xl max-md:text-xl">Hello, I&apos;m</p>
-                    <h1 className={oleoScript.className + " text-8xl max-md:text-6xl"}>Ali Al&nbsp;Kindi</h1>
-                    <h6 className="text-2xl max-md:text-lg font-bold">A Software Engineer</h6>
+                    <p id="home-text-line-1" className="text-2xl max-md:text-xl">Hello, I&apos;m</p>
+                    <h1 id="home-text-line-2" className={oleoScript.className + " text-8xl max-md:text-6xl"}>Ali Al&nbsp;Kindi</h1>
+                    <h6 id="home-text-line-3" className="text-2xl max-md:text-lg font-bold">A Software Engineer</h6>
                 </div>
 
             </div>

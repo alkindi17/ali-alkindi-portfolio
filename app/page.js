@@ -2,7 +2,8 @@
 
 import NavBar from "@/components/nav-bar"
 import HomeSection from "@/components/home-section";
-import Container from "@/components/container";
+import AboutSection from "@/components/about-section";
+import Section from "@/components/section";
 
 export default function Home() {
 
@@ -12,33 +13,31 @@ export default function Home() {
 
       <main className="snap-y w-screen h-screen snap-mandatory overflow-scroll">
 
-        <Container>
+        <Section>
           <HomeSection />
-        </Container>
+        </Section>
 
-        <Container>
-          <div id="about">
-            About Section
-          </div>
-        </Container>
+        <Section>
+          <AboutSection />
+        </Section>
 
-        <Container>
+        <Section>
           <div id="skills">
             Skills Section
           </div>
-        </Container>
+        </Section>
 
-        <Container >
+        <Section >
           <div id="projects">
             Projects Section
           </div>
-        </Container>
+        </Section>
 
-        <Container >
+        <Section >
           <div id="contact">
             Contact Section
           </div>
-        </Container>
+        </Section>
         
       </main>
     </>

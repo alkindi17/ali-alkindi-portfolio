@@ -1,20 +1,43 @@
 "use client";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef, useLayoutEffect } from "react"
 import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
+import gsap, {Power3} from "gsap";
 
 export default function NavBar() {
 
   const [mounted, setMounted] = useState(false)
+  const tl = useRef();
+  const navBar = useRef(false);
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
+  useLayoutEffect(() => {
+    console.log(screen.width);
+    console.log(screen.width < 768 ? '-100%' : '+100%');
+  
+    tl.current = gsap.timeline()
+    .from(navBar.current, {
+      y: screen.width > 768 ? '-100%' : '+100%',
+      opacity: 0,
+      duration: 1.5,
+      ease: Power3.easeOut
+    })
+    .from('#sm-theme-toggle', {
+      y: '-100%',
+      opacity: 0,
+      duration: 1.5,
+      ease: Power3.easeOut
+    }, "-=1")
+  }, [mounted])
+
   if (!mounted) {
     return null
-  }
+  }    
+
 
   const nav_items = [
     {
@@ -39,23 +62,29 @@ export default function NavBar() {
     }
   ]
 
+  const scrollToAnchor = (anchorId) => {
+    var element = document.getElementById(anchorId);
+    element.scrollIntoView({behavior: "smooth", block: "nearest", inline: "start"});
+  }
+
   return(
     <>
-      <div className="sm:hidden fixed top-6 right-8">
+    {/* Theme Toggle for smaller screens */}
+      <div id="sm-theme-toggle" className="sm:hidden fixed top-6 right-8">
         <ThemeToggle />
       </div>
 
-      <nav className="z-0 flex fixed flex-row gap-10 justify-center py-3 max-sm:justify-between max-sm:px-10 max-sm:bottom-0 left-0 right-0 backdrop-blur-sm">
+      <nav id="nav-bar" ref={navBar} className="z-0 flex fixed flex-row gap-10 justify-center py-3 max-sm:justify-between max-sm:px-10 max-sm:bottom-0 left-0 right-0 backdrop-blur-sm">
 
         {nav_items.map(item => {
           return (
-            <button key={item.name}>
-              <Link href={"#"+item.name.toLowerCase()}>{item.icon}</Link>
+            <button onClick={() => scrollToAnchor(item.name.toLowerCase())} key={item.name} className="sm:hover:opacity-60 sm:hover:scale-[120%] transition ease-in-out duration-300">
+              {item.icon}
             </button>
           )
         })}
 
-        {/* Theme Toggle */}
+        {/* Theme Toggle for larger screens */}
         <div className="max-sm:hidden items-center flex">
           <ThemeToggle/>
         </div>

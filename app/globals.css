@@ -8,13 +8,6 @@
   --background: #fdfdfd;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground: #fff;
-    --background: #1e1e1e;
-  }
-} */
-
 [data-theme='dark'] {
     --foreground: #fff;
     --background: #1e1e1e;

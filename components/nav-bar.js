@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef, useLayoutEffect } from "react"
-import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
 import gsap, {Power3} from "gsap";
 
@@ -74,7 +73,7 @@ export default function NavBar() {
         <ThemeToggle />
       </div>
 
-      <nav id="nav-bar" ref={navBar} className="z-0 flex fixed flex-row gap-10 justify-center py-3 max-sm:justify-between max-sm:px-10 max-sm:bottom-0 left-0 right-0 backdrop-blur-sm">
+      <nav id="nav-bar" ref={navBar} className=" z-50 flex fixed flex-row gap-10 justify-center py-3 max-sm:justify-between max-sm:px-10 max-sm:bottom-0 left-0 right-0 color-red-500 backdrop-blur-md">
 
         {nav_items.map(item => {
           return (

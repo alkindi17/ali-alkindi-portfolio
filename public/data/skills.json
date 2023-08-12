@@ -1,0 +1,92 @@
+{
+    "Software" : [
+        {
+            "name" : "HTML",
+            "icon" : "html.svg"
+        },
+        {
+            "name" : "CSS",
+            "icon" : "css.svg"
+        },
+        {
+            "name" : "JavaScript",
+            "icon" : "javascript.svg"
+        },
+        {
+            "name" : "Python",
+            "icon" : "python.svg"
+        },
+        {
+            "name" : "Java",
+            "icon" : "sql.svg"
+        },
+        {
+            "name" : "SQL",
+            "icon" : "sql.svg"
+        },
+        {
+            "name" : "NoSQL",
+            "icon" : "sql.svg"
+        },
+        {
+            "name" : "Flask",
+            "icon" : "sql.svg"
+        },
+        {
+            "name" : "React",
+            "icon" : "sql.svg"
+        },
+        {
+            "name" : "Node.js",
+            "icon" : "sql.svg"
+        },
+        {
+            "name" : "Express.js",
+            "icon" : "sql.svg"
+        },
+        {
+            "name" : "JUnit",
+            "icon" : "sql.svg"
+        }
+    ],
+    "Personal" : [
+        {
+            "name" : "Creative",
+            "icon" : "sql.svg"
+        },
+        {
+            "name" : "Team Worker",
+            "icon" : "sql.svg"
+        },
+        {
+            "name" : "Analytical",
+            "icon" : "sql.svg"
+        },
+        {
+            "name" : "Scrum",
+            "icon" : "sql.svg"
+        },
+        {
+            "name" : "Agile Development",
+            "icon" : "sql.svg"
+        }
+    ],
+    "Other" : [
+        {
+            "name" : "Adobe Illustrator",
+            "icon" : "sql.svg"
+        },
+        {
+            "name" : "Figma",
+            "icon" : "sql.svg"
+        },
+        {
+            "name" : "Graphic Designing",
+            "icon" : "sql.svg"
+        },
+        {
+            "name" : "Photography",
+            "icon" : "sql.svg"
+        }
+    ]
+}

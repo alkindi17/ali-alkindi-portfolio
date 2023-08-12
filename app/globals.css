@@ -9,12 +9,37 @@
 }
 
 [data-theme='dark'] {
-    --foreground: #fff;
-    --background: #1e1e1e;
+    --foreground: #d4d4d4;
+    --background: #191919;
   }
-
 
 body {
   color: var(--foreground);
   background: var(--background);
+}
+
+.active-skill {
+  background-color: var(--foreground);
+  color: var(--background);
+  border-color: var(--foreground);
+  cursor: default;
+}
+
+.non-active-skill {
+  background-color: var(--background);
+  color: var(--foreground);
+  border-color: var(--foreground);
+  opacity: 0.3;
+}
+
+.non-active-skill:hover {
+  @media screen and (min-width: 768px) {
+    opacity: 1;
+  }
+}
+
+@layer components {
+  .card {
+    @apply border-gray-300 border dark:bg-dark-accent dark:border-dark-accent;
+  }
 }

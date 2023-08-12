@@ -1,8 +1,7 @@
-import { useTheme } from "next-themes"
-
+import { useTheme } from "next-themes";
 
 export default function GetCurrentTheme() {
-    const { resolvedTheme } = useTheme()
+  const { resolvedTheme } = useTheme();
 
-    return resolvedTheme;
+  return resolvedTheme;
 }

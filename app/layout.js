@@ -1,10 +1,13 @@
 import "./globals.css";
-import { Raleway, Enriqueta } from "next/font/google";
+import { Montserrat, Enriqueta } from "next/font/google";
 import Provider from "@/functions/provider";
 
-const raleway = Raleway({ weight: "500", subsets: ["latin"] });
+const dmSans = Montserrat({
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+});
 const enriqueta = Enriqueta({
-  weight: "700",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-enriqueta",
 });
@@ -17,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="">
-      <body className={raleway.className + " " + enriqueta.variable}>
+      <body className={dmSans.className + " " + enriqueta.variable}>
         <Provider>{children}</Provider>
       </body>
     </html>

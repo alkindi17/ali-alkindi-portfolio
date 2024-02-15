@@ -30,7 +30,7 @@ export default function NavBar() {
           duration: 1.5,
           ease: Power3.easeOut,
         },
-        "-=1"
+        "-=1",
       );
   }, [mounted]);
 
@@ -46,7 +46,7 @@ export default function NavBar() {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
-          className="w-7 h-7"
+          className="h-7 w-7"
         >
           <path
             fillRule="evenodd"
@@ -63,7 +63,7 @@ export default function NavBar() {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
-          className="w-7 h-7"
+          className="h-7 w-7"
         >
           <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z" />
         </svg>
@@ -76,7 +76,7 @@ export default function NavBar() {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
-          className="w-7 h-7"
+          className="h-7 w-7"
         >
           <path
             fillRule="evenodd"
@@ -93,7 +93,7 @@ export default function NavBar() {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
-          className="w-7 h-7"
+          className="h-7 w-7"
         >
           <path
             fillRule="evenodd"
@@ -110,7 +110,7 @@ export default function NavBar() {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
-          className="w-7 h-7"
+          className="h-7 w-7"
         >
           <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
           <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
@@ -131,21 +131,21 @@ export default function NavBar() {
   return (
     <>
       {/* Theme Toggle for smaller screens */}
-      <div id="sm-theme-toggle" className="sm:hidden fixed top-6 right-8">
+      <div id="sm-theme-toggle" className="fixed right-8 top-6 sm:hidden">
         <ThemeToggle />
       </div>
 
       <nav
         id="nav-bar"
         ref={navBar}
-        className=" z-50 flex fixed flex-row gap-10 justify-center py-3 max-sm:justify-between max-sm:px-10 max-sm:bottom-0 left-0 right-0 color-red-500 backdrop-blur-md"
+        className=" color-red-500 fixed left-0 right-0 z-50 flex flex-row justify-center gap-10 py-3 backdrop-blur-md max-sm:bottom-0 max-sm:justify-between max-sm:px-10"
       >
         {nav_items.map((item) => {
           return (
             <button
               onClick={() => scrollToAnchor(item.name.toLowerCase())}
               key={item.name}
-              className="sm:hover:opacity-60 sm:hover:scale-[120%] transition ease-in-out duration-300"
+              className="transition duration-300 ease-in-out sm:hover:scale-[120%] sm:hover:opacity-60"
             >
               {item.icon}
             </button>
@@ -153,7 +153,7 @@ export default function NavBar() {
         })}
 
         {/* Theme Toggle for larger screens */}
-        <div className="max-sm:hidden items-center flex">
+        <div className="flex items-center max-sm:hidden">
           <ThemeToggle />
         </div>
       </nav>

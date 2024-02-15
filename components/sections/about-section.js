@@ -1,6 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import PrimaryButton from "./PrimaryButton";
+import PrimaryButton from "../global/PrimaryButton";
 import { useLayoutEffect, useRef } from "react";
 import gsap, { Power3 } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -47,7 +46,7 @@ export default function AboutSection() {
     >
       {/* Image */}
       <Peep2
-        id="peep-1"
+        id="peep-2"
         className="max-w-[300px] basis-1/2 max-md:w-[150px] max-sm:w-[120px]"
         fill={getCurrentTheme() == "dark" ? "currentcolor" : "white"}
       />

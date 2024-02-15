@@ -1,10 +1,3 @@
-// This function is used to fetch data from JSON file
-export async function fetcher(url) {
-  const response = await fetch(url, { cache: "force-cache" });
-
-  return await response.json();
-}
-
 // This function is used to fetch the icons for the skills
 export async function skillsIconsLoader(skillsData) {
   const updatedSkillsData = {};
@@ -13,7 +6,7 @@ export async function skillsIconsLoader(skillsData) {
     updatedSkillsData[skillType] = await Promise.all(
       skillsData[skillType].map(async (skill) => {
         const iconObject = await import(
-          `public/data/skills-logos/${skill.icon}`
+          `public/data/skills/skills-logos/${skill.icon}`
         );
         return { ...skill, icon: iconObject.default };
       }),
@@ -23,9 +16,7 @@ export async function skillsIconsLoader(skillsData) {
   return updatedSkillsData;
 }
 
-export default async function fetchSkills(url) {
-  const rawSkillsData = await fetcher(url);
-
+export default async function fetchSkills(rawSkillsData) {
   const skillsData = await skillsIconsLoader(rawSkillsData);
 
   return skillsData;

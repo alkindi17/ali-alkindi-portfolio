@@ -64,7 +64,7 @@ export default function HomeSection() {
         </p>
         <h1
           id="home-text-line-2"
-          className={"font-enriqueta text-8xl max-md:text-6xl"}
+          className={"font-enriqueta text-8xl font-bold max-md:text-6xl"}
         >
           Ali <span>Al Kindi</span>
         </h1>

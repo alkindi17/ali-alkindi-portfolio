@@ -5,11 +5,13 @@
 
 :root {
   --foreground: #1e1e1e;
+  --foreground-rgb: 30, 30, 30;
   --background: #fdfdfd;
 }
 
 [data-theme='dark'] {
     --foreground: #d4d4d4;
+    --foreground-rgb: 212, 212, 212;
     --background: #191919;
   }
 
@@ -38,8 +40,33 @@ body {
   }
 }
 
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+.custom-pagination-bullet {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 100%;
+  background: rgba(var(--foreground-rgb), 0.2);
+}
+
+.custom-pagination-bullet-active {
+  background: var(--foreground);
+}
+
 @layer components {
+  .primary-button {
+    @apply font-semibold rounded-xl border border-[var(--foreground)] px-7 py-2 text-sm transition duration-300 ease-in-out md:hover:bg-[var(--foreground)] md:hover:text-[var(--background)] dark:border-dark-accent dark:bg-dark-accent md:dark:hover:border-dark-accent-100 md:dark:hover:bg-dark-accent-100 md:dark:hover:text-[var(--foreground)] max-md:text-xs;
+  }
+  .secondary-button {
+    @apply font-semibold rounded-xl border border-[var(--foreground)] bg-[var(--foreground)] text-[var(--background)] px-7 py-2 text-sm transition duration-300 ease-in-out md:hover:bg-[var(--background)] md:hover:text-[var(--foreground)] dark:text-[var(--foreground)] dark:border-dark-accent-100 dark:bg-dark-accent-100 md:dark:hover:border-dark-accent-200 md:dark:hover:bg-dark-accent-200 max-md:text-xs;
+  }
   .card {
-    @apply border-gray-300 border dark:bg-dark-accent dark:border-dark-accent;
+    @apply border-gray-300 border dark:bg-dark-accent dark:border-dark-accent rounded-lg;
   }
 }

@@ -1,10 +1,11 @@
 "use client";
 
-import NavBar from "@/components/nav-bar";
-import HomeSection from "@/components/home-section";
-import AboutSection from "@/components/about-section";
-import SkillsSection from "@/components/skills-section";
-import Section from "@/components/section";
+import NavBar from "@/components/global/nav-bar";
+import HomeSection from "@/components/sections/home-section";
+import AboutSection from "@/components/sections/about-section";
+import SkillsSection from "@/components/sections/skills-section";
+import Section from "@/components/sections/section";
+import ProjectsSection from "@/components/sections/projects-section";
 
 export default function Page() {
   return (
@@ -25,7 +26,7 @@ export default function Page() {
         </Section>
 
         <Section>
-          <div id="projects">Projects Section</div>
+          <ProjectsSection />
         </Section>
 
         <Section>

@@ -1,0 +1,35 @@
+[
+    {
+        "shortTitle" : "Tic-Tac-Toe",
+        "fullTitle" : "Tic-Tac-Toe",
+        "slug" : "tic-tac-toe",
+        "type" : "Game",
+        "yearCreated" : "2023",
+        "summary" : "Try out the well-known game of Tic-Tac-Toe, but with a fun new challenge. Besides the usual Xs and Os, we have a super tough mode that's very hard to beat. Whether you're just starting or have played many times, this game will be exciting for you. Ready to see if you can win against our hardest setting? Give it a go!",
+        "technologiesUsed": ["HTML", "CSS", "JavaScript", "Tailwind", "React", "Python", "Flask", "GitHub"],
+        "githubUrl" : "/",
+        "websiteAddress" : "/"
+    },
+    {
+        "shortTitle" : "Interactive Trail",
+        "fullTitle" : "Interactive Trail",
+        "slug" : "interactive-trail",
+        "type" : "Web Application",
+        "yearCreated" : "2023",
+        "summary" : "Tasked by Newport City Council to create mobile web app for interactive experience of city attractions.",
+        "technologiesUsed": ["Python", "Flask", "SQLite", "HTML", "CSS", "Bootstrap", "GitLab", "Agile", "Scrum"],
+        "githubUrl" : "/",
+        "websiteAddress" : "/"
+    },
+    {
+        "shortTitle" : "On-boarding",
+        "fullTitle" : "On-boarding Checklist Tool",
+        "slug" : "on-boarding",
+        "type" : "Web Application",
+        "yearCreated" : "2023",
+        "summary" : "Tasked by Bipsync to create a tool to simplify the tasks assignment process for the HR department.",
+        "technologiesUsed": ["Java", "Spring Boot", "MariaDB", "HTML", "CSS", "Bootstrap", "JUnit Testing", "GitLab", "Scrum", "Agile"],
+        "githubUrl" : "/",
+        "websiteAddress" : "/"
+    }
+]

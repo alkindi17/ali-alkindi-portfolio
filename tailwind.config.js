@@ -13,12 +13,20 @@ module.exports = {
         "dark-accent": {
           DEFAULT: "#404040",
           100: "#666666",
+          200: "#4d4d4d",
         },
       },
       fontFamily: {
         enriqueta: ["var(--font-enriqueta)"],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: "max-content",
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

@@ -4,7 +4,7 @@ export default function Layout({ children }) {
   return (
     <>
       <NavBar />
-      <main className="container mx-auto my-10 px-10 max-sm:px-6 lg:max-w-5xl">
+      <main className="container mx-auto mb-28 mt-10 px-10 max-sm:px-6 lg:max-w-5xl">
         {children}
       </main>
     </>

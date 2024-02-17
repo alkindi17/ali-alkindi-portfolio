@@ -1,8 +1,8 @@
 import { register } from "swiper/element/bundle";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import GitHubIcon from "public/data/skills/skills-logos/github.svg";
-import WebIcon from "public/data/skills/skills-logos/web.svg";
+import GitHubIcon from "public/data/icons/github.svg";
+import WebIcon from "public/data/icons/web.svg";
 
 import projectsDataJson from "public/data/projects/projects.json";
 

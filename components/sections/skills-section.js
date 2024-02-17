@@ -43,7 +43,7 @@ export default function SkillsSection() {
   return (
     <div
       id="skills"
-      className="mt-44 flex h-full flex-col items-center max-sm:mt-24"
+      className="flex h-full flex-col items-center pt-32 max-sm:pt-14"
     >
       <h1 className="font-enriqueta text-4xl font-bold max-md:text-3xl">
         My Skills

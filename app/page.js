@@ -3,6 +3,7 @@
 import NavBar from "@/components/global/nav-bar";
 import HomeSection from "@/components/sections/home-section";
 import AboutSection from "@/components/sections/about-section";
+import ExperienceSection from "@/components/sections/experience-section";
 import SkillsSection from "@/components/sections/skills-section";
 import Section from "@/components/sections/section";
 import ProjectsSection from "@/components/sections/projects-section";
@@ -20,6 +21,10 @@ export default function Page() {
 
         <Section>
           <AboutSection />
+        </Section>
+
+        <Section>
+          <ExperienceSection />
         </Section>
 
         <Section>

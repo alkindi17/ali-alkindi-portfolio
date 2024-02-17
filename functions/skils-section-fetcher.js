@@ -5,9 +5,7 @@ export async function skillsIconsLoader(skillsData) {
   for (let skillType in skillsData) {
     updatedSkillsData[skillType] = await Promise.all(
       skillsData[skillType].map(async (skill) => {
-        const iconObject = await import(
-          `public/data/skills/skills-logos/${skill.icon}`
-        );
+        const iconObject = await import(`public/data/icons/${skill.icon}`);
         return { ...skill, icon: iconObject.default };
       }),
     );

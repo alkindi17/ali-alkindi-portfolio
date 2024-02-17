@@ -1,8 +1,9 @@
+import { getDisplayName } from "next/dist/shared/lib/utils";
 import Link from "next/link";
 
 import projectsDataJson from "public/data/projects/projects.json";
-import GitHubIcon from "public/data/skills/skills-logos/github.svg";
-import WebIcon from "public/data/skills/skills-logos/web.svg";
+import GitHubIcon from "public/data/icons/github.svg";
+import WebIcon from "public/data/icons/web.svg";
 
 export const dynamicParams = false;
 
@@ -19,9 +20,7 @@ export default async function Page({ params }) {
 
   const Markdown = await import(`public/data/projects/mdx/${slug}.mdx`)
     .then((res) => res.default)
-    .catch(() => () => {
-      return <p className="font-bold">Content Not Found!</p>;
-    });
+    .catch(() => () => {});
 
   return (
     <article>

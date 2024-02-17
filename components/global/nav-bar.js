@@ -4,11 +4,13 @@ import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import ThemeToggle from "./theme-toggle";
 import gsap, { Power3 } from "gsap";
 
-import HomeIcon from "public/data/skills/skills-logos/home.svg";
-import ProfileIcon from "public/data/skills/skills-logos/profile.svg";
-import StarIcon from "public/data/skills/skills-logos/star.svg";
-import CodeIcon from "public/data/skills/skills-logos/code.svg";
-import MailIcon from "public/data/skills/skills-logos/mail.svg";
+import HomeIcon from "public/data/icons/home.svg";
+import ProfileIcon from "public/data/icons/profile.svg";
+import AcademicIcon from "public/data/icons/academic.svg";
+import StarIcon from "public/data/icons/star.svg";
+import CodeIcon from "public/data/icons/code.svg";
+import MailIcon from "public/data/icons/mail.svg";
+import ChatIcon from "public/data/icons/chat.svg";
 
 export default function NavBar() {
   const [mounted, setMounted] = useState(false);
@@ -54,6 +56,10 @@ export default function NavBar() {
       icon: <ProfileIcon className="h-7 w-7" fill="currentcolor" />,
     },
     {
+      name: "Experience",
+      icon: <AcademicIcon className="h-7 w-7" fill="currentcolor" />,
+    },
+    {
       name: "Skills",
       icon: <StarIcon className="h-7 w-7" fill="currentcolor" />,
     },
@@ -65,7 +71,7 @@ export default function NavBar() {
     },
     {
       name: "Contact",
-      icon: <MailIcon className="h-8 w-8" fill="currentcolor" />,
+      icon: <ChatIcon className="h-7 w-7" fill="currentcolor" />,
     },
   ];
 
@@ -88,7 +94,7 @@ export default function NavBar() {
       <nav
         id="nav-bar"
         ref={navBar}
-        className=" color-red-500 fixed left-0 right-0 z-50 flex flex-row justify-center gap-10 py-3 backdrop-blur-md max-sm:bottom-0 max-sm:justify-between max-sm:px-10"
+        className=" color-red-500 fixed left-0 right-0 z-50 flex flex-row justify-center gap-10 py-3 backdrop-blur-md max-sm:bottom-0 max-sm:justify-between max-sm:gap-0 max-sm:px-10"
       >
         {nav_items.map((item) => {
           return (

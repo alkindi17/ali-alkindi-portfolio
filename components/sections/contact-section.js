@@ -1,8 +1,8 @@
 import { sendForm } from "@emailjs/browser";
 
-import GitHubIcon from "public/data/skills/skills-logos/github.svg";
-import LinkedinIcon from "public/data/skills/skills-logos/linkedin.svg";
-import InstagramIcon from "public/data/skills/skills-logos/instagram.svg";
+import GitHubIcon from "public/data/icons/github.svg";
+import LinkedinIcon from "public/data/icons/linkedin.svg";
+import InstagramIcon from "public/data/icons/instagram.svg";
 import Link from "next/link";
 import { use, useState, useEffect, useRef, useLayoutEffect } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";

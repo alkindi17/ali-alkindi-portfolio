@@ -165,11 +165,8 @@ export default function ContactSection() {
 
       <div className="mt-2 text-sm">
         <span className="max-sm:hidden">Or email me at: &nbsp;</span>
-        <a
-          className="font-bold underline"
-          href="mailto:alkindialimasoud@gmail.com"
-        >
-          alkindialimasoud@gmail.com
+        <a className="font-bold underline" href="mailto:contact@alialkindi.dev">
+          contact@alialkindi.dev
         </a>
       </div>
 

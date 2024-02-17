@@ -18,7 +18,7 @@
         },
         {
             "name" : "Java",
-            "icon" : "sql.svg"
+            "icon" : "java.svg"
         },
         {
             "name" : "SQL",
@@ -26,67 +26,87 @@
         },
         {
             "name" : "NoSQL",
-            "icon" : "sql.svg"
+            "icon" : "postgresql.svg"
         },
         {
             "name" : "Flask",
-            "icon" : "sql.svg"
+            "icon" : "flask.svg"
         },
         {
-            "name" : "React",
-            "icon" : "sql.svg"
+            "name" : "React.js",
+            "icon" : "react.svg"
+        },
+        {
+            "name" : "Next.js",
+            "icon" : "next.svg"
         },
         {
             "name" : "Node.js",
-            "icon" : "sql.svg"
-        },
-        {
-            "name" : "Express.js",
-            "icon" : "sql.svg"
+            "icon" : "nodejs.svg"
         },
         {
             "name" : "JUnit",
-            "icon" : "sql.svg"
+            "icon" : "junit5.svg"
+        },
+        {
+            "name" : "Google Firebase",
+            "icon" : "firebase.svg"
+        },
+        {
+            "name" : "Git",
+            "icon" : "git.svg"
         }
     ],
     "Personal" : [
         {
-            "name" : "Creative",
-            "icon" : "sql.svg"
-        },
-        {
-            "name" : "Team Worker",
-            "icon" : "sql.svg"
-        },
-        {
-            "name" : "Analytical",
-            "icon" : "sql.svg"
-        },
-        {
             "name" : "Scrum",
-            "icon" : "sql.svg"
+            "icon" : "scrum.svg"
         },
         {
             "name" : "Agile Development",
-            "icon" : "sql.svg"
+            "icon" : "certificate.svg"
+        },
+        {
+            "name" : "Leadership",
+            "icon" : "star.svg"
+        },
+        {
+            "name" : "Team Worker",
+            "icon" : "user-group.svg"
+        },
+        {
+            "name" : "Quick Learner",
+            "icon" : "brain.svg"
+        },
+        {
+            "name" : "Creative",
+            "icon" : "star.svg"
         }
     ],
     "Other" : [
         {
             "name" : "Adobe Illustrator",
-            "icon" : "sql.svg"
+            "icon" : "adobe-illustrator.svg"
+        },
+        {
+            "name" : "Adobe XD",
+            "icon" : "adobe-xd.svg"
         },
         {
             "name" : "Figma",
-            "icon" : "sql.svg"
+            "icon" : "figma.svg"
         },
         {
             "name" : "Graphic Designing",
-            "icon" : "sql.svg"
+            "icon" : "shapes.svg"
+        },
+        {
+            "name" : "UI/UX Designing",
+            "icon" : "desktop.svg"
         },
         {
             "name" : "Photography",
-            "icon" : "sql.svg"
+            "icon" : "camera.svg"
         }
     ]
 }

@@ -6,6 +6,7 @@ export async function skillsIconsLoader(skillsData) {
     updatedSkillsData[skillType] = await Promise.all(
       skillsData[skillType].map(async (skill) => {
         const iconObject = await import(`public/data/icons/${skill.icon}`);
+        // const iconObject = await import(`public/data/icons/certificate.svg`);
         return { ...skill, icon: iconObject.default };
       }),
     );

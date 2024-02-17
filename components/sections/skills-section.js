@@ -28,7 +28,10 @@ export default function SkillsSection() {
               key={skill.name}
               className="card flex h-16 w-52 items-center gap-4 px-4 py-4 leading-4 max-md:h-14 max-md:gap-1 max-md:text-sm max-sm:h-12 max-sm:w-32 max-sm:pl-1 max-sm:pr-0 max-sm:text-xs"
             >
-              <skill.icon fill="currentcolor" className="max-sm:scale-75" />
+              <skill.icon
+                fill="currentcolor"
+                className="h-6 w-6 max-sm:h-4 max-sm:w-4"
+              />
               {skill.name}
             </div>
           );
@@ -36,7 +39,6 @@ export default function SkillsSection() {
       </div>
     );
   } else if (skillsError) {
-    console.log(skillsError);
     skills = "Error loading skills";
   }
 

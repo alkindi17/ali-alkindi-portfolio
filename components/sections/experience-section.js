@@ -9,7 +9,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 export default function EducationSection() {
-  const [activeTab, setActiveTab] = useState("Certificates");
+  const [activeTab, setActiveTab] = useState("Education");
 
   const toRender = () => {
     switch (activeTab) {

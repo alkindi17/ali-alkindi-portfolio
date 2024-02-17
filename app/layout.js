@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Montserrat, Enriqueta } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Provider from "@/functions/provider";
 
 const dmSans = Montserrat({
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
       <body className={dmSans.className + " " + enriqueta.variable}>
         <Provider>{children}</Provider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

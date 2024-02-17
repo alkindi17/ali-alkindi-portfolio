@@ -4,37 +4,74 @@ import GitHubIcon from "public/data/skills/skills-logos/github.svg";
 import LinkedinIcon from "public/data/skills/skills-logos/linkedin.svg";
 import InstagramIcon from "public/data/skills/skills-logos/instagram.svg";
 import Link from "next/link";
-import { useState } from "react";
+import { use, useState, useEffect, useRef, useLayoutEffect } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+import Typewriter from "typewriter-effect/dist/core";
 
 export default function ContactSection() {
-  const [headline, setHeadline] = useState("Let's talk.");
+  const [headline, setHeadline] = useState("");
+  const typewriterRef = useRef(null);
+  const form = useRef();
 
+  const typeHeadline = (text = headline) => {
+    typewriterRef.current.deleteAll().typeString(text).start();
+  };
+
+  useLayoutEffect(() => {
+    // only create typewriter once and only after headline is mounted
+    if (!typewriterRef.current) {
+      typewriterRef.current = new Typewriter("#headline", {});
+    }
+
+    typeHeadline();
+  }, [headline]);
+
+  useLayoutEffect(() => {
+    // ScrollTrigger for headline to start typing when it enters the viewport only the first time
+    const scrollTrigger = ScrollTrigger.create({
+      trigger: "#contact",
+      markers: false,
+      scroller: ".overflow-scroll",
+      onEnter: () => {
+        typeHeadline("Let's talk!");
+        scrollTrigger.kill(); // kill the trigger after the first time
+      },
+    });
+  }, []);
+
+  // EmailJS
   const sendEmails = (e) => {
     e.preventDefault();
 
     setHeadline("Sending...");
 
+    // Clone form to avoid losing input values if reset is called before the email is sent
+    const formData = form.current.cloneNode(true);
+
+    // Send confirmation email to the user
     sendForm(
       process.env.EMAILJS_SERVICE_ID,
       process.env.EMAILJS_TEMPLATE_ID_MESSAGE_RECEIVED,
-      e.target,
+      formData,
       {
         publicKey: process.env.EMAILJS_PUBLIC_KEY,
       },
     ).then(
       () => {
-        sendEmailToMe(e);
+        sendEmailToMe(formData);
       },
       (error) => {
         setHeadline("Oops! Please try again.");
       },
     );
 
-    const sendEmailToMe = (x) => {
+    // Send message to me
+    const sendEmailToMe = (formData) => {
       sendForm(
         process.env.EMAILJS_SERVICE_ID,
         process.env.EMAILJS_TEMPLATE_ID_NEW_MESSAGE,
-        x.target,
+        formData,
         {
           publicKey: process.env.EMAILJS_PUBLIC_KEY,
         },
@@ -48,6 +85,7 @@ export default function ContactSection() {
       );
     };
 
+    // Reset form
     e.target.reset();
   };
 
@@ -56,10 +94,14 @@ export default function ContactSection() {
       id="contact"
       className="flex w-full flex-col items-center max-sm:mb-20"
     >
-      <h1 className="font-enriqueta text-6xl font-bold max-sm:text-3xl">
-        {headline}
+      <h1
+        id="headline"
+        className="font-enriqueta text-6xl font-bold max-sm:text-3xl"
+      >
+        {/* {headline} */}
       </h1>
       <form
+        ref={form}
         className="mt-8 flex w-96 flex-col gap-4 max-sm:mt-5 max-sm:max-w-xs max-sm:gap-2"
         onSubmit={sendEmails}
       >

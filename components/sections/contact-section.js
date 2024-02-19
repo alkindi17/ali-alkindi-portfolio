@@ -4,7 +4,7 @@ import GitHubIcon from "public/data/icons/github.svg";
 import LinkedinIcon from "public/data/icons/linkedin.svg";
 import InstagramIcon from "public/data/icons/instagram.svg";
 import Link from "next/link";
-import { use, useState, useEffect, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 import Typewriter from "typewriter-effect/dist/core";
@@ -59,7 +59,7 @@ export default function ContactSection() {
       },
     ).then(
       () => {
-        sendEmailToMe(formData);
+        setHeadline("Received! Thank you.");
       },
       (error) => {
         setHeadline("Oops! Please try again.");

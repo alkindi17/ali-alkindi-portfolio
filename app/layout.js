@@ -27,7 +27,7 @@ export const metadata = {
       {
         url: "https://alialkindi.dev/data/metadata/og-image.jpg",
         width: 1200,
-        height: 630,
+        height: 627,
         alt: "Ali Al Kindi Portfolio",
         type: "image/jpeg",
         itemprop: "image",

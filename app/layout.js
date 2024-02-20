@@ -2,6 +2,7 @@ import "./globals.css";
 import { Montserrat, Enriqueta } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from '@next/third-parties/google'
 import Provider from "@/functions/provider";
 
 const dmSans = Montserrat({
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
         <Provider>{children}</Provider>
         <Analytics />
         <SpeedInsights />
+        <GoogleAnalytics gaId="G-K45R21FY7G" />
       </body>
     </html>
   );

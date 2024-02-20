@@ -19,8 +19,9 @@ export const metadata = {
   title: "Ali Al Kindi",
   description: "Ali Al Kindi Portfolio",
   openGraph: {
-    title: "Ali Al Kindi",
-    description: "Ali Al Kindi Portfolio",
+    title: "Ali Al Kindi Portfolio",
+    description:
+      "Hi, I'm Ali Al Kindi, a Software Engineering student. Check out my portfolio! 🚀",
     url: "https://alialkindi.dev",
     images: [
       {
@@ -31,6 +32,17 @@ export const metadata = {
       },
     ],
     type: "website",
+  },
+  icons: {
+    icon: "https://alialkindi.dev/data/metadata/icon.png",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ali Al Kindi Portfolio",
+    description:
+      "Hi, I'm Ali Al Kindi, a Software Engineering student. Check out my portfolio! 🚀",
+    creator: "@alkindi17",
+    images: ["https://alialkindi.dev/data/metadata/og-image.jpg"],
   },
 };
 

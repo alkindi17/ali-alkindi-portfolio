@@ -5,7 +5,7 @@
         "slug" : "tic-tac-toe",
         "type" : "Game",
         "yearCreated" : "2023",
-        "summary" : "Try out the well-known game of Tic-Tac-Toe, but with a fun new challenge. Besides the usual Xs and Os, we have a super tough mode that's very hard to beat. Whether you're just starting or have played many times, this game will be exciting for you. Ready to see if you can win against our hardest setting? Give it a go!",
+        "summary" : "The well-known game of Tic-Tac-Toe, but with a fun exciting challenge; impossible to beat AI!",
         "technologiesUsed": ["HTML", "CSS", "JavaScript", "RESTful API", "Tailwind", "React", "Python", "Flask", "GitHub"],
         "githubUrl" : "https://github.com/alkindi17/tictactoe",
         "websiteAddress" : "https://alkindi17.github.io/tictactoe/"

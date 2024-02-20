@@ -76,15 +76,15 @@ export default async function Page({ params }) {
         </div>
       </div>
 
-      <div className="mb-10 flex flex-wrap gap-3 max-sm:text-sm">
+      <div className="mb-10 flex flex-wrap gap-3 max-sm:gap-2 max-sm:text-sm">
         {project.technologiesUsed.map((technology) => (
-          <p className="card rounded-xl px-4 py-2" key={technology}>
+          <p className="card rounded-xl px-4 py-2 max-sm:text-xs max-sm:px-2 max-sm:py-1 max-sm:rounded-md" key={technology}>
             {technology}
           </p>
         ))}
       </div>
 
-      <div className="prose dark:prose-invert max-sm:prose-sm prose-p:text-justify">
+      <div className="prose dark:prose-invert max-sm:prose-sm max-sm:prose-p:text-left prose-p:text-justify">
         <Markdown />
       </div>
     </article>

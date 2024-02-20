@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <Provider>{children}</Provider>
         <Analytics />
         <SpeedInsights />
-        <GoogleAnalytics gaId="G-K45R21FY7G" />
+        <GoogleAnalytics gaId="G-TYSFFDBDML" />
       </body>
     </html>
   );

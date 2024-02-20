@@ -2,7 +2,7 @@ import "./globals.css";
 import { Montserrat, Enriqueta } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Provider from "@/functions/provider";
 
 const dmSans = Montserrat({
@@ -18,6 +18,20 @@ const enriqueta = Enriqueta({
 export const metadata = {
   title: "Ali Al Kindi",
   description: "Ali Al Kindi Portfolio",
+  openGraph: {
+    title: "Ali Al Kindi",
+    description: "Ali Al Kindi Portfolio",
+    url: "https://alialkindi.dev",
+    images: [
+      {
+        url: "https://alialkindi.dev/data/metadata/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ali Al Kindi Portfolio",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {

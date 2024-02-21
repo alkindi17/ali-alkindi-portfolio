@@ -21,6 +21,23 @@ export async function generateMetadata({ params }) {
   return {
     title: project.fullTitle + " | Ali Al Kindi Projects",
     description: project.summary,
+    openGraph: {
+      title: project.fullTitle + " | Ali Al Kindi Projects",
+      description: project.summary,
+      url: `https://alialkindi.dev/projects/${slug}`,
+      article: {
+        publishedTime: project.dateCreated,
+        modifiedTime: project.dateModified,
+        authors: ["Ali Al Kindi"],
+        tags: project.technologiesUsed,
+      },
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.fullTitle + " | Ali Al Kindi Projects",
+      description: project.summary,
+      creator: "@alkindi17",
+    },
   };
 }
 

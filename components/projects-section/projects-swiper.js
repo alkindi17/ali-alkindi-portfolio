@@ -162,6 +162,7 @@ function Slides({}) {
         <div className="absolute bottom-5 left-0 mt-0 flex w-full items-center justify-between px-4">
           <Link
             href={`/projects/${project.slug}`}
+            target="_blank"
             className="secondary-button rounded-lg px-3 py-1 text-xs"
           >
             Read More

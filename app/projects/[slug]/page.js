@@ -31,12 +31,23 @@ export async function generateMetadata({ params }) {
         authors: ["Ali Al Kindi"],
         tags: project.technologiesUsed,
       },
+      images: [
+        {
+          url: "https://alialkindi.dev/data/metadata/og-image.jpg",
+          width: 1200,
+          height: 627,
+          alt: "Ali Al Kindi Portfolio",
+          type: "image/jpeg",
+          itemprop: "image",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: project.fullTitle + " | Ali Al Kindi Projects",
       description: project.summary,
       creator: "@alkindi17",
+      image: "https://alialkindi.dev/data/metadata/og-image.jpg",
     },
   };
 }

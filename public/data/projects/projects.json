@@ -16,7 +16,7 @@
         "slug" : "interactive-trail",
         "type" : "Web Application",
         "yearCreated" : "2022",
-        "summary" : "For the Newport City Council, designed to encourage exploration of the city's scenic trails in a fun, game-like format.",
+        "summary" : "For Newport's City Council, designed to encourage exploration of the city's scenic trails in a fun, game-like format.",
         "technologiesUsed": ["Python", "Flask", "SQLite", "HTML", "CSS", "Bootstrap", "GitLab", "Agile", "Scrum"],
         "githubUrl" : "",
         "websiteAddress" : ""

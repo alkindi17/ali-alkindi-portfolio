@@ -15,11 +15,11 @@
         "fullTitle" : "Interactive Trail",
         "slug" : "interactive-trail",
         "type" : "Web Application",
-        "yearCreated" : "2023",
-        "summary" : "Tasked by Newport City Council to create mobile web app for interactive experience of city attractions.",
+        "yearCreated" : "2022",
+        "summary" : "For the Newport City Council, designed to encourage exploration of the city's scenic trails in a fun, game-like format.",
         "technologiesUsed": ["Python", "Flask", "SQLite", "HTML", "CSS", "Bootstrap", "GitLab", "Agile", "Scrum"],
-        "githubUrl" : "/",
-        "websiteAddress" : "/"
+        "githubUrl" : "",
+        "websiteAddress" : ""
     },
     {
         "shortTitle" : "On-boarding",
@@ -27,7 +27,7 @@
         "slug" : "on-boarding",
         "type" : "Web Application",
         "yearCreated" : "2023",
-        "summary" : "Tasked by Bipsync to create a tool to simplify the tasks assignment process for the HR department.",
+        "summary" : "A tool for Bipsync's HR department, designed to simplify the tasks assignment process.",
         "technologiesUsed": ["Java", "Spring Boot", "MariaDB", "HTML", "CSS", "Bootstrap", "JUnit Testing", "GitLab", "Scrum", "Agile"],
         "githubUrl" : "/",
         "websiteAddress" : "/"

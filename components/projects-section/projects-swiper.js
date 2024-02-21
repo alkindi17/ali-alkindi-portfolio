@@ -156,13 +156,12 @@ function Slides({}) {
           <p className="font-bold">•</p>
           <p>{project.yearCreated}</p>
         </div>
-        <p className="mt-5 line-clamp-5 text-justify text-sm font-thin leading-5 opacity-70">
+        <p className="mt-5 line-clamp-5 text-sm font-thin leading-5 opacity-70">
           {project.summary}
         </p>
         <div className="absolute bottom-5 left-0 mt-0 flex w-full items-center justify-between px-4">
           <Link
             href={`/projects/${project.slug}`}
-            target="_blank"
             className="secondary-button rounded-lg px-3 py-1 text-xs"
           >
             Read More

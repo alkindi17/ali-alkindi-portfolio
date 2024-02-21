@@ -19,10 +19,10 @@ export async function generateMetadata({ params }) {
   const project = projectsDataJson.find((project) => project.slug === slug);
 
   return {
-    title: project.fullTitle + " | Ali Al Kindi Projects",
+    title: "Ali Al Kindi Projects | " + project.fullTitle,
     description: project.summary,
     openGraph: {
-      title: project.fullTitle + " | Ali Al Kindi Projects",
+      title: "Ali Al Kindi Projects | " + project.fullTitle,
       description: project.summary,
       url: `https://alialkindi.dev/projects/${slug}`,
       article: {
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: project.fullTitle + " | Ali Al Kindi Projects",
+      title: "Ali Al Kindi Projects | " + project.fullTitle,
       description: project.summary,
       creator: "@alkindi17",
       image: "https://alialkindi.dev/data/metadata/og-image.jpg",

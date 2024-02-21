@@ -39,7 +39,7 @@
         "type" : "CLI Game",
         "yearCreated" : "2023",
         "summary" : "A mini version of the game of Monopoly, designed to be played in the terminal.",
-        "technologiesUsed": ["Java", "JUnit Testing", "GitLab", "Agile", "Scrum"],
+        "technologiesUsed": ["Java", "JUnit Testing", "GitLab"],
         "githubUrl" : "",
         "websiteAddress" : ""
     },
@@ -50,7 +50,7 @@
         "type" : "Website",
         "yearCreated" : "2024",
         "summary" : "This Website! A portfolio to showcase my projects and skills.",
-        "technologiesUsed": ["HTML", "CSS", "JavaScript", "Tailwind", "React", "GitHub"],
+        "technologiesUsed": ["Next.js", "React", "HTML", "CSS", "JavaScript", "Tailwind", "Gsap.js"],
         "githubUrl" : "https://github.com/alkindi17/ali-alkindi-portfolio",
         "websiteAddress" : "/"
     }

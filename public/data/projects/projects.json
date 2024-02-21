@@ -28,8 +28,30 @@
         "type" : "Web Application",
         "yearCreated" : "2023",
         "summary" : "A tool for Bipsync's HR department, designed to simplify the tasks assignment process.",
-        "technologiesUsed": ["Java", "Spring Boot", "MariaDB", "HTML", "CSS", "Bootstrap", "JUnit Testing", "GitLab", "Scrum", "Agile"],
-        "githubUrl" : "/",
+        "technologiesUsed": ["Java", "Spring Boot", "MariaDB", "Gradle", "HTML", "CSS", "Bootstrap", "JUnit Testing", "GitLab", "Scrum", "Agile"],
+        "githubUrl" : "",
+        "websiteAddress" : ""
+    },
+    {
+        "shortTitle" : "Mini Monopoly",
+        "fullTitle" : "Mini Monopoly",
+        "slug" : "mini-monopoly",
+        "type" : "CLI Game",
+        "yearCreated" : "2023",
+        "summary" : "A mini version of the game of Monopoly, designed to be played in the terminal.",
+        "technologiesUsed": ["Java", "JUnit Testing", "GitLab", "Agile", "Scrum"],
+        "githubUrl" : "",
+        "websiteAddress" : ""
+    },
+    {
+        "shortTitle" : "My Portfolio",
+        "fullTitle" : "My Portfolio",
+        "slug" : "my-portfolio",
+        "type" : "Website",
+        "yearCreated" : "2024",
+        "summary" : "This Website! A portfolio to showcase my projects and skills.",
+        "technologiesUsed": ["HTML", "CSS", "JavaScript", "Tailwind", "React", "GitHub"],
+        "githubUrl" : "https://github.com/alkindi17/ali-alkindi-portfolio",
         "websiteAddress" : "/"
     }
 ]

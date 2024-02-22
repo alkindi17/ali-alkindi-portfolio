@@ -22,6 +22,7 @@ export default function NavBar() {
   }, []);
 
   useLayoutEffect(() => {
+    if (!mounted) return;
     tl.current = gsap
       .timeline()
       .from(navBar.current, {

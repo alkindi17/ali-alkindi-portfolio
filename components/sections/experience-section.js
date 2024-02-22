@@ -16,23 +16,23 @@ export default function EducationSection() {
       case "Education": {
         return experienceDataJson.Education.map((education, index) => {
           return (
-            <li key={index} class="mb-7 ms-7 last:mb-0 max-sm:mb-6">
-              <span class="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 bg-white ring-8 ring-[var(--background)] dark:border-dark-accent dark:bg-dark-accent">
-                <AcademicIcon fill="currentColor" class="h-4 w-4" />
+            <li key={index} className="mb-7 ms-7 last:mb-0 max-sm:mb-6">
+              <span className="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 bg-white ring-8 ring-[var(--background)] dark:border-dark-accent dark:bg-dark-accent">
+                <AcademicIcon fill="currentColor" className="h-4 w-4" />
               </span>
               <time
-                class="mb-1 block
+                className="mb-1 block
                 pt-2 text-sm leading-none text-dark-accent-100 max-sm:text-xs"
               >
                 {education.year}
               </time>
               <h3
-                class="items -center
+                className="items -center
                 flex text-lg font-semibold max-sm:text-sm"
               >
                 {education.degree}
               </h3>
-              <p class="text-dark-accent-100 max-sm:text-xs">
+              <p className="text-dark-accent-100 max-sm:text-xs">
                 {education.school}
               </p>
             </li>
@@ -42,18 +42,18 @@ export default function EducationSection() {
       case "Certificates": {
         return experienceDataJson.Certificates.map((certificate, index) => {
           return (
-            <li key={index} class="mb-7 ms-7 last:mb-0 max-sm:mb-6">
-              <span class="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 bg-white ring-8 ring-[var(--background)] dark:border-dark-accent dark:bg-dark-accent">
-                <CertificateIcon fill="currentColor" class="h-4 w-4" />
+            <li key={index} className="mb-7 ms-7 last:mb-0 max-sm:mb-6">
+              <span className="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 bg-white ring-8 ring-[var(--background)] dark:border-dark-accent dark:bg-dark-accent">
+                <CertificateIcon fill="currentColor" className="h-4 w-4" />
               </span>
               <time
-                class="mb-1 block
+                className="mb-1 block
                 pt-2 text-sm leading-none text-dark-accent-100 max-sm:text-xs"
               >
                 {certificate.year}
               </time>
               <div className="flex justify-between">
-                <h3 class="items -center flex text-lg font-semibold max-sm:text-sm ">
+                <h3 className="items -center flex text-lg font-semibold max-sm:text-sm ">
                   {certificate.title}
                 </h3>
                 {certificate.link ? (
@@ -64,14 +64,14 @@ export default function EducationSection() {
                   >
                     <LinkIcon
                       fill="currentColor"
-                      class="h-6 w-6 max-sm:h-5 max-sm:w-5"
+                      className="h-6 w-6 max-sm:h-5 max-sm:w-5"
                     />
                   </Link>
                 ) : (
                   ""
                 )}
               </div>
-              <p class="text-dark-accent-100 max-sm:text-xs">
+              <p className="text-dark-accent-100 max-sm:text-xs">
                 {certificate.institution}
               </p>
               <div className="mt-2 flex flex-wrap gap-1 max-sm:text-sm">
@@ -88,23 +88,23 @@ export default function EducationSection() {
       case "Work":
         return experienceDataJson.Work.map((role, index) => {
           return (
-            <li key={index} class="mb-7 ms-7 last:mb-0 max-sm:mb-6">
-              <span class="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 bg-white ring-8 ring-[var(--background)] dark:border-dark-accent dark:bg-dark-accent">
-                <BriefcaseIcon fill="currentColor" class="h-4 w-4" />
+            <li key={index} className="mb-7 ms-7 last:mb-0 max-sm:mb-6">
+              <span className="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 bg-white ring-8 ring-[var(--background)] dark:border-dark-accent dark:bg-dark-accent">
+                <BriefcaseIcon fill="currentColor" className="h-4 w-4" />
               </span>
               <time
-                class="mb-1 block
+                className="mb-1 block
                 pt-2 text-sm leading-none text-dark-accent-100 max-sm:text-xs"
               >
                 {role.year}
               </time>
               <h3
-                class="items -center
+                className="items -center
                 flex text-lg font-semibold max-sm:text-sm"
               >
                 {role.position}
               </h3>
-              <p class="text-dark-accent-100 max-sm:text-xs">
+              <p className="text-dark-accent-100 max-sm:text-xs">
                 {role.organisation}
               </p>
               <div className="mt-2 flex flex-wrap gap-1 max-sm:text-sm">
@@ -135,7 +135,7 @@ export default function EducationSection() {
       ></Tabs>
 
       <div className="mt-5 max-h-[65%] w-[38rem] overflow-auto rounded-lg border border-gray-300 px-12 py-6 dark:border-dark-accent-200 max-sm:max-h-[58%] max-sm:w-80 max-sm:px-8 max-sm:py-4">
-        <ol class="relative border-s border-gray-200 dark:border-dark-accent-200">
+        <ol className="relative border-s border-gray-200 dark:border-dark-accent-200">
           {toRender()}
         </ol>
       </div>

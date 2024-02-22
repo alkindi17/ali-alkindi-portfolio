@@ -65,7 +65,7 @@ export default function ProjectsSwiper() {
   return (
     <>
       <swiper-container init="false" ref={swiperEl}>
-        <div slot="container-end" class="flex justify-center gap-5">
+        <div slot="container-end" className="flex justify-center gap-5">
           <SwiperControls />
         </div>
 
@@ -107,13 +107,13 @@ function SwiperControls({}) {
         <svg
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
-          class="h-7 w-7"
+          className="h-7 w-7"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M15.75 19.5L8.25 12l7.5-7.5"
           />
         </svg>
@@ -128,13 +128,13 @@ function SwiperControls({}) {
         <svg
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
-          class="h-7 w-7"
+          className="h-7 w-7"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M8.25 4.5l7.5 7.5-7.5 7.5"
           />
         </svg>

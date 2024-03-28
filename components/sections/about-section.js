@@ -44,7 +44,7 @@ export default function AboutSection() {
   return (
     <div
       id="about"
-      className="flex h-fit flex-row items-center justify-center gap-20 max-md:flex-col max-md:gap-8 max-md:text-center max-sm:mb-20"
+      className="flex h-fit flex-row items-center justify-center gap-20 max-md:flex-col max-md:gap-8 max-md:text-center"
     >
       {/* Image */}
       <Peep2

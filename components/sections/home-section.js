@@ -48,7 +48,7 @@ export default function HomeSection() {
   return (
     <div
       id="home"
-      className="flex h-fit flex-row items-end justify-center gap-16 max-md:flex-col max-md:items-center max-md:gap-10 max-md:text-center max-sm:-translate-y-10"
+      className="flex h-fit flex-row items-end justify-center gap-16 max-md:flex-col max-md:items-center max-md:gap-10 max-md:text-center"
     >
       {/* Image */}
       <Peep1

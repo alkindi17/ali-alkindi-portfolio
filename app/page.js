@@ -14,7 +14,7 @@ export default function Page() {
     <>
       <NavBar />
 
-      <main className="h-screen w-screen snap-y snap-mandatory overflow-scroll">
+      <main className="h-[100dvh] w-screen snap-y snap-mandatory overflow-scroll">
         <Section>
           <HomeSection />
         </Section>

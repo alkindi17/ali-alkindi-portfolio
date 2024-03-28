@@ -90,10 +90,7 @@ export default function ContactSection() {
   };
 
   return (
-    <div
-      id="contact"
-      className="flex w-full flex-col items-center max-sm:mb-20"
-    >
+    <div id="contact" className="flex w-full flex-col items-center">
       <h1
         id="headline"
         className="font-enriqueta text-6xl font-bold max-sm:text-3xl"

@@ -134,7 +134,7 @@ export default function EducationSection() {
         setActiveTab={setActiveTab}
       ></Tabs>
 
-      <div className="mt-5 max-h-[65%] w-[38rem] overflow-auto rounded-lg border border-gray-300 px-12 py-6 dark:border-dark-accent-200 max-sm:max-h-[58%] max-sm:w-80 max-sm:px-8 max-sm:py-4">
+      <div className="mt-5 max-h-[65%] w-[38rem] overflow-auto rounded-lg border border-gray-300 px-12 py-6 dark:border-dark-accent-200 max-sm:w-80 max-sm:px-8">
         <ol className="relative border-s border-gray-200 dark:border-dark-accent-200">
           {toRender()}
         </ol>

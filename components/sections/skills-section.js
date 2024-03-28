@@ -57,7 +57,7 @@ export default function SkillsSection() {
         setActiveTab={setActiveSkill}
       ></Tabs>
 
-      <div className="mt-4 flex max-h-[65%] w-[100%] flex-col overflow-auto border-b border-t border-gray-300 py-4 dark:border-dark-accent-200 max-sm:max-h-[64%]">
+      <div className="mt-4 flex max-h-[65%] w-[100%] flex-col overflow-auto border-b border-t border-gray-300 py-4 dark:border-dark-accent-200">
         <div className="flex justify-center">{skills}</div>
       </div>
     </div>

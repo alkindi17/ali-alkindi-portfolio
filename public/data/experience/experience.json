@@ -1,56 +1,98 @@
 {
-    "Education": [
-        {
-            "year" : "2022 - 2025 (Present)",
-            "degree" : "BSc Applied Software Engineering",
-            "school" : "Cardiff University, UK"
-        },
-        {
-            "year" : "2021 - 2022",
-            "degree" : "Engineering, Physical Sciences & Architecture - IFY",
-            "school" : "Study Group, Cardiff, UK"
-        },
-        {
-            "year" : "2008 - 2021",
-            "degree" : "Ahmad Bin Majid Private School",
-            "school" : "Muscat, Oman"
-        }
-    ],
-    "Certificates": [
-        {
-            "year" : "Aug 2023",
-            "title": "Developer Festival Google Technology",
-            "institution": "Youth Center, Oman",
-            "skills" : ["Google Firebase", "Google Firestore", "JavaScript"],
-            "link": "data/experience/certificates/developer-festival-google-technology-online-path-certificate.pdf"
-        },
-        {
-            "year" : "Feb 2023",
-            "title" : "The Complete Web Developer in 2023 Course",
-            "institution" : "Zero to Mastery, Udemy",
-            "skills" : ["HTML", "CSS", "JavaScript", "React", "Git", "Node.js", "Express.js", "RESTful API", "PostgreSQL", "SQL"],
-            "link" : "https://www.udemy.com/certificate/UC-fdf92cb0-69a2-4063-939e-e5c8b6a335dc/"
-        },
-        {
-            "year" : "Apr 2020",
-            "title": "The Basics of The Programming Language - Python",
-            "institution": "The National Youth Program for Skills Development, Oman",
-            "skills" : ["Python", "Problem Solving", "Critical Thinking"],
-            "link": "data/experience/certificates/National Youth Programme for Skills Development.pdf"
-        }
-    ],
-    "Work": [
-        {
-            "year" : "Jan 2023 - Feb 2024",
-            "position" : "Head of Media Committeee",
-            "organisation" : "Omani Student Society in Cardiff",
-            "skills" : ["Leadership", "Teamwork", "Communication", "Creativity", "Time Management", "Graphic Designing", "Photography", "Social Media Management"]
-        },
-        {
-            "year" : "Nov 2021 - Dec 2022",
-            "position" : "Photographer & Graphic Designer",
-            "organisation" : "Omani Student Society in Cardiff",
-            "skills" : ["Photography", "Graphic Designing", "Creativity"]
-        }
-    ]
+  "Education": [
+    {
+      "year": "2022 - 2025 (Present)",
+      "degree": "BSc Applied Software Engineering",
+      "school": "Cardiff University, UK"
+    },
+    {
+      "year": "2021 - 2022",
+      "degree": "Engineering, Physical Sciences & Architecture - IFY",
+      "school": "Study Group, Cardiff, UK"
+    },
+    {
+      "year": "2008 - 2021",
+      "degree": "Ahmad Bin Majid Private School",
+      "school": "Muscat, Oman"
+    }
+  ],
+  "Certificates": [
+    {
+      "year": "Mar 2024",
+      "title": "Programming Foundations: Software Testing/QA",
+      "institution": "LinkedIn Learning",
+      "skills": ["Software Testing", "Software QA"],
+      "link": "https://www.linkedin.com/learning/certificates/80f85744a5a2a386f50b6f056c3a423c4c3466553ee18ee8110ce4fafad2e711"
+    },
+    {
+      "year": "Aug 2023",
+      "title": "Developer Festival - Google Technology",
+      "institution": "Youth Center, Oman",
+      "skills": ["Google Firebase", "Google Firestore", "JavaScript"],
+      "link": "data/experience/certificates/developer-festival-google-technology-online-path-certificate.pdf"
+    },
+    {
+      "year": "Feb 2023",
+      "title": "Next.js Firebase Full Course",
+      "institution": "Fireship Tech",
+      "skills": [
+        "Google Firebase",
+        "Cloud Firestore",
+        "Next.js",
+        "React.js",
+        "App Development",
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ]
+    },
+    {
+      "year": "Feb 2023",
+      "title": "The Complete Web Developer in 2023 Course",
+      "institution": "Zero to Mastery, Udemy",
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Git",
+        "Node.js",
+        "Express.js",
+        "RESTful API",
+        "PostgreSQL",
+        "SQL"
+      ],
+      "link": "https://www.udemy.com/certificate/UC-fdf92cb0-69a2-4063-939e-e5c8b6a335dc/"
+    },
+    {
+      "year": "Apr 2020",
+      "title": "The Basics of The Programming Language - Python",
+      "institution": "The National Youth Program for Skills Development, Oman",
+      "skills": ["Python", "Problem Solving", "Critical Thinking"],
+      "link": "data/experience/certificates/National Youth Programme for Skills Development.pdf"
+    }
+  ],
+  "Work": [
+    {
+      "year": "Jan 2023 - Feb 2024",
+      "position": "Head of Media Committeee",
+      "organisation": "Omani Student Society in Cardiff",
+      "skills": [
+        "Leadership",
+        "Teamwork",
+        "Communication",
+        "Creativity",
+        "Time Management",
+        "Graphic Designing",
+        "Photography",
+        "Social Media Management"
+      ]
+    },
+    {
+      "year": "Nov 2021 - Dec 2022",
+      "position": "Photographer & Graphic Designer",
+      "organisation": "Omani Student Society in Cardiff",
+      "skills": ["Photography", "Graphic Designing", "Creativity"]
+    }
+  ]
 }

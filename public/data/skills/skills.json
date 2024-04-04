@@ -1,112 +1,116 @@
 {
-    "Software" : [
-        {
-            "name" : "HTML",
-            "icon" : "html.svg"
-        },
-        {
-            "name" : "CSS",
-            "icon" : "css.svg"
-        },
-        {
-            "name" : "JavaScript",
-            "icon" : "javascript.svg"
-        },
-        {
-            "name" : "Python",
-            "icon" : "python.svg"
-        },
-        {
-            "name" : "Java",
-            "icon" : "java.svg"
-        },
-        {
-            "name" : "SQL",
-            "icon" : "sql.svg"
-        },
-        {
-            "name" : "NoSQL",
-            "icon" : "postgresql.svg"
-        },
-        {
-            "name" : "Flask",
-            "icon" : "flask.svg"
-        },
-        {
-            "name" : "React.js",
-            "icon" : "react.svg"
-        },
-        {
-            "name" : "Next.js",
-            "icon" : "next.svg"
-        },
-        {
-            "name" : "Node.js",
-            "icon" : "nodejs.svg"
-        },
-        {
-            "name" : "JUnit",
-            "icon" : "junit5.svg"
-        },
-        {
-            "name" : "Google Firebase",
-            "icon" : "firebase.svg"
-        },
-        {
-            "name" : "Git",
-            "icon" : "git.svg"
-        }
-    ],
-    "Personal" : [
-        {
-            "name" : "Scrum",
-            "icon" : "scrum.svg"
-        },
-        {
-            "name" : "Agile Development",
-            "icon" : "certificate.svg"
-        },
-        {
-            "name" : "Leadership",
-            "icon" : "star.svg"
-        },
-        {
-            "name" : "Team Worker",
-            "icon" : "user-group.svg"
-        },
-        {
-            "name" : "Quick Learner",
-            "icon" : "brain.svg"
-        },
-        {
-            "name" : "Creative",
-            "icon" : "star.svg"
-        }
-    ],
-    "Other" : [
-        {
-            "name" : "Adobe Illustrator",
-            "icon" : "adobe-illustrator.svg"
-        },
-        {
-            "name" : "Adobe XD",
-            "icon" : "adobe-xd.svg"
-        },
-        {
-            "name" : "Figma",
-            "icon" : "figma.svg"
-        },
-        {
-            "name" : "Graphic Designing",
-            "icon" : "shapes.svg"
-        },
-        {
-            "name" : "UI/UX Designing",
-            "icon" : "desktop.svg"
-        },
-        {
-            "name" : "Photography",
-            "icon" : "camera.svg"
-        }
-    ]
+  "Software": [
+    {
+      "name": "HTML",
+      "icon": "html.svg"
+    },
+    {
+      "name": "CSS",
+      "icon": "css.svg"
+    },
+    {
+      "name": "JavaScript",
+      "icon": "javascript.svg"
+    },
+    {
+      "name": "TypeScript",
+      "icon": "typescript.svg"
+    },
+    {
+      "name": "Python",
+      "icon": "python.svg"
+    },
+    {
+      "name": "Java",
+      "icon": "java.svg"
+    },
+    {
+      "name": "SQL",
+      "icon": "sql.svg"
+    },
+    {
+      "name": "NoSQL",
+      "icon": "postgresql.svg"
+    },
+    {
+      "name": "Flask",
+      "icon": "flask.svg"
+    },
+    {
+      "name": "React.js",
+      "icon": "react.svg"
+    },
+    {
+      "name": "Next.js",
+      "icon": "next.svg"
+    },
+    {
+      "name": "Node.js",
+      "icon": "nodejs.svg"
+    },
+    {
+      "name": "JUnit",
+      "icon": "junit5.svg"
+    },
+    {
+      "name": "Google Firebase",
+      "icon": "firebase.svg"
+    },
+    {
+      "name": "Git",
+      "icon": "git.svg"
+    }
+  ],
+  "Personal": [
+    {
+      "name": "Scrum",
+      "icon": "scrum.svg"
+    },
+    {
+      "name": "Agile Development",
+      "icon": "certificate.svg"
+    },
+    {
+      "name": "Leadership",
+      "icon": "star.svg"
+    },
+    {
+      "name": "Team Worker",
+      "icon": "user-group.svg"
+    },
+    {
+      "name": "Quick Learner",
+      "icon": "brain.svg"
+    },
+    {
+      "name": "Creative",
+      "icon": "star.svg"
+    }
+  ],
+  "Other": [
+    {
+      "name": "Adobe Illustrator",
+      "icon": "adobe-illustrator.svg"
+    },
+    {
+      "name": "Adobe XD",
+      "icon": "adobe-xd.svg"
+    },
+    {
+      "name": "Figma",
+      "icon": "figma.svg"
+    },
+    {
+      "name": "Graphic Designing",
+      "icon": "shapes.svg"
+    },
+    {
+      "name": "UI/UX Designing",
+      "icon": "desktop.svg"
+    },
+    {
+      "name": "Photography",
+      "icon": "camera.svg"
+    }
+  ]
 }

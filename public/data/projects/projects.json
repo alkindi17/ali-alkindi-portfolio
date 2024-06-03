@@ -1,57 +1,118 @@
 [
-    {
-        "shortTitle" : "Tic-Tac-Toe",
-        "fullTitle" : "Tic-Tac-Toe",
-        "slug" : "tic-tac-toe",
-        "type" : "Game",
-        "yearCreated" : "2023",
-        "summary" : "The well-known game of Tic-Tac-Toe, but with a fun exciting challenge; impossible to beat AI!",
-        "technologiesUsed": ["HTML", "CSS", "JavaScript", "RESTful API", "Tailwind", "React", "Python", "Flask", "GitHub"],
-        "githubUrl" : "https://github.com/alkindi17/tictactoe",
-        "websiteAddress" : "https://alkindi17.github.io/tictactoe/"
-    },
-    {
-        "shortTitle" : "Interactive Trail",
-        "fullTitle" : "Interactive Trail",
-        "slug" : "interactive-trail",
-        "type" : "Web Application",
-        "yearCreated" : "2022",
-        "summary" : "For Newport's City Council, designed to encourage exploration of the city's scenic trails in a fun, game-like format.",
-        "technologiesUsed": ["Python", "Flask", "SQLite", "HTML", "CSS", "Bootstrap", "GitLab", "Agile", "Scrum"],
-        "githubUrl" : "",
-        "websiteAddress" : ""
-    },
-    {
-        "shortTitle" : "On-boarding",
-        "fullTitle" : "On-boarding Checklist Tool",
-        "slug" : "on-boarding",
-        "type" : "Web Application",
-        "yearCreated" : "2023",
-        "summary" : "A tool for Bipsync's HR department, designed to simplify the tasks assignment process.",
-        "technologiesUsed": ["Java", "Spring Boot", "MariaDB", "Gradle", "HTML", "CSS", "Bootstrap", "JUnit Testing", "GitLab", "Scrum", "Agile"],
-        "githubUrl" : "",
-        "websiteAddress" : ""
-    },
-    {
-        "shortTitle" : "Mini Monopoly",
-        "fullTitle" : "Mini Monopoly",
-        "slug" : "mini-monopoly",
-        "type" : "CLI Game",
-        "yearCreated" : "2023",
-        "summary" : "A mini version of the game of Monopoly, designed to be played in the terminal.",
-        "technologiesUsed": ["Java", "JUnit Testing", "GitLab"],
-        "githubUrl" : "",
-        "websiteAddress" : ""
-    },
-    {
-        "shortTitle" : "My Portfolio",
-        "fullTitle" : "My Portfolio",
-        "slug" : "my-portfolio",
-        "type" : "Website",
-        "yearCreated" : "2024",
-        "summary" : "This Website! A portfolio to showcase my projects and skills.",
-        "technologiesUsed": ["Next.js", "React", "HTML", "CSS", "JavaScript", "Tailwind", "Gsap.js"],
-        "githubUrl" : "https://github.com/alkindi17/ali-alkindi-portfolio",
-        "websiteAddress" : "/"
-    }
+  {
+    "shortTitle": "ApplyMate",
+    "fullTitle": "ApplyMate | Job Applications Tracker",
+    "slug": "applymate",
+    "type": "Android App",
+    "yearCreated": "2024",
+    "summary": "Job application tracker that enables seamless tracking, detailed job information, dynamic progress dashboards, and more.",
+    "technologiesUsed": [
+      "Python",
+      "Flask",
+      "SQLite",
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "GitLab",
+      "Agile",
+      "Scrum"
+    ],
+    "githubUrl": "",
+    "websiteAddress": ""
+  },
+  {
+    "shortTitle": "Tic-Tac-Toe",
+    "fullTitle": "Tic-Tac-Toe",
+    "slug": "tic-tac-toe",
+    "type": "Game",
+    "yearCreated": "2023",
+    "summary": "The well-known game of Tic-Tac-Toe, but with a fun exciting challenge; impossible to beat AI!",
+    "technologiesUsed": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "RESTful API",
+      "Tailwind",
+      "React",
+      "Python",
+      "Flask",
+      "GitHub"
+    ],
+    "githubUrl": "https://github.com/alkindi17/tictactoe",
+    "websiteAddress": "https://alkindi17.github.io/tictactoe/"
+  },
+  {
+    "shortTitle": "Interactive Trail",
+    "fullTitle": "Interactive Trail",
+    "slug": "interactive-trail",
+    "type": "Web Application",
+    "yearCreated": "2022",
+    "summary": "For Newport's City Council, designed to encourage exploration of the city's scenic trails in a fun, game-like format.",
+    "technologiesUsed": [
+      "Python",
+      "Flask",
+      "SQLite",
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "GitLab",
+      "Agile",
+      "Scrum"
+    ],
+    "githubUrl": "",
+    "websiteAddress": ""
+  },
+  {
+    "shortTitle": "On-boarding",
+    "fullTitle": "On-boarding Checklist Tool",
+    "slug": "on-boarding",
+    "type": "Web Application",
+    "yearCreated": "2023",
+    "summary": "A tool for Bipsync's HR department, designed to simplify the tasks assignment process.",
+    "technologiesUsed": [
+      "Java",
+      "Spring Boot",
+      "MariaDB",
+      "Gradle",
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "JUnit Testing",
+      "GitLab",
+      "Scrum",
+      "Agile"
+    ],
+    "githubUrl": "",
+    "websiteAddress": ""
+  },
+  {
+    "shortTitle": "Mini Monopoly",
+    "fullTitle": "Mini Monopoly",
+    "slug": "mini-monopoly",
+    "type": "CLI Game",
+    "yearCreated": "2023",
+    "summary": "A mini version of the game of Monopoly, designed to be played in the terminal.",
+    "technologiesUsed": ["Java", "JUnit Testing", "GitLab"],
+    "githubUrl": "",
+    "websiteAddress": ""
+  },
+  {
+    "shortTitle": "My Portfolio",
+    "fullTitle": "My Portfolio",
+    "slug": "my-portfolio",
+    "type": "Website",
+    "yearCreated": "2024",
+    "summary": "This Website! A portfolio to showcase my projects and skills.",
+    "technologiesUsed": [
+      "Next.js",
+      "React",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Tailwind",
+      "Gsap.js"
+    ],
+    "githubUrl": "https://github.com/alkindi17/ali-alkindi-portfolio",
+    "websiteAddress": "/"
+  }
 ]

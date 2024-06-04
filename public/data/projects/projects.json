@@ -6,19 +6,27 @@
     "type": "Android App",
     "yearCreated": "2024",
     "summary": "Job application tracker that enables seamless tracking, detailed job information, dynamic progress dashboards, and more.",
-    "technologiesUsed": [
-      "Python",
-      "Flask",
-      "SQLite",
-      "HTML",
-      "CSS",
-      "Bootstrap",
-      "GitLab",
-      "Agile",
-      "Scrum"
-    ],
+    "technologiesUsed": ["Kotlin", "Android Studio", "Firebase"],
     "githubUrl": "",
     "websiteAddress": ""
+  },
+  {
+    "shortTitle": "Pokedex",
+    "fullTitle": "Pokedex",
+    "slug": "pokedex",
+    "type": "Web Application",
+    "yearCreated": "2024",
+    "summary": "An interactive website displaying all pokemons and their details",
+    "technologiesUsed": [
+      "React",
+      "Next.js",
+      "JavaScript",
+      "Tailwind",
+      "Firebase",
+      "GitHub"
+    ],
+    "githubUrl": "https://github.com/alkindi17/pokedex",
+    "websiteAddress": "https://pokedex.alialkindi.dev"
   },
   {
     "shortTitle": "Tic-Tac-Toe",

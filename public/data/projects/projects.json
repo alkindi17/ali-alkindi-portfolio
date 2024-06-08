@@ -5,7 +5,7 @@
     "slug": "applymate",
     "type": "Android App",
     "yearCreated": "2024",
-    "summary": "Job application tracker that enables seamless tracking, detailed job information, dynamic progress dashboards, and more.",
+    "summary": "Job applications tracker that enables seamless tracking, detailed job information, dynamic progress dashboards, and more.",
     "technologiesUsed": ["Kotlin", "Android Studio", "Firebase"],
     "githubUrl": "",
     "websiteAddress": ""

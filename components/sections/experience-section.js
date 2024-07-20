@@ -9,7 +9,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 export default function EducationSection() {
-  const [activeTab, setActiveTab] = useState("Education");
+  const [activeTab, setActiveTab] = useState("Work");
 
   const toRender = () => {
     switch (activeTab) {
@@ -129,7 +129,7 @@ export default function EducationSection() {
         My Experience
       </h1>
       <Tabs
-        tabs={["Education", "Certificates", "Work"]}
+        tabs={["Work", "Education", "Certificates"]}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
       ></Tabs>

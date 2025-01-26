@@ -1,3 +1,7 @@
-export default function PrimaryButton({ children }) {
-  return <button className="primary-button mt-5">{children}</button>;
+import { cn } from "@/utils/cn";
+
+export default function PrimaryButton({ children, className }) {
+  return (
+    <button className={cn("primary-button mt-5", className)}>{children}</button>
+  );
 }

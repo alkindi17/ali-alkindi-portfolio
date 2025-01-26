@@ -5,7 +5,7 @@ import gsap, { Power3 } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Peep2 from "@/public/peep-2.svg";
 import getCurrentTheme from "@/functions/theme";
-
+import { Bot } from "lucide-react";
 import DocumentIcon from "public/data/icons/document.svg";
 
 export default function AboutSection() {
@@ -54,7 +54,7 @@ export default function AboutSection() {
       />
 
       {/* Text */}
-      <div className="h-full basis-1/2">
+      <div className="flex h-full basis-1/2 flex-col">
         <p id="about-text" className="text-justify text-lg max-md:text-sm">
           I am a{" "}
           <span className="font-bold">passionate and hardworking student</span>,
@@ -73,18 +73,33 @@ export default function AboutSection() {
           </span>
         </p>
 
-        <Link
-          id="about-resume-button"
-          href={"/ali-alkindi-resume.pdf"}
-          target="_blank"
-        >
-          <PrimaryButton>
-            <div className="flex flex-row items-center gap-3">
-              <DocumentIcon fill="currentColor" className="h-6 w-6" />
-              View Resume
-            </div>
-          </PrimaryButton>
-        </Link>
+        <div className="flex flex-col items-center gap-1 sm:flex-row sm:gap-2">
+          <Link
+            id="about-resume-button"
+            href={"/ali-alkindi-resume.pdf"}
+            target="_blank"
+          >
+            <PrimaryButton>
+              <div className="flex flex-row items-center gap-3">
+                <DocumentIcon fill="currentColor" className="h-6 w-6" />
+                View Resume
+              </div>
+            </PrimaryButton>
+          </Link>
+
+          <Link
+            id="about-resume-button"
+            href={"https://chat.alialkindi.dev"}
+            target="_blank"
+          >
+            <PrimaryButton className="max-sm:mt-0">
+              <div className="flex flex-row items-center gap-3">
+                <Bot className="h-6 w-6" />
+                Chat With Me
+              </div>
+            </PrimaryButton>
+          </Link>
+        </div>
       </div>
     </div>
   );

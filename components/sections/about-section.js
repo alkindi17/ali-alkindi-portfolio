@@ -58,7 +58,7 @@ export default function AboutSection() {
         <p id="about-text" className="text-justify text-lg max-md:text-sm">
           I am a{" "}
           <span className="font-bold">
-            passionate and hardworking software engineer graduate
+            passionate and hardworking Graduate Software Engineer
           </span>
           , from Cardiff University. As a quick learner, I&apos;m perpetually on
           the lookout for opportunities to enhance my skill set.{" "}

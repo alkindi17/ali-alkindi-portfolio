@@ -57,10 +57,11 @@ export default function AboutSection() {
       <div className="flex h-full basis-1/2 flex-col">
         <p id="about-text" className="text-justify text-lg max-md:text-sm">
           I am a{" "}
-          <span className="font-bold">passionate and hardworking student</span>,
-          currently studying Software Engineering at Cardiff University. As a
-          quick learner, I&apos;m perpetually on the lookout for opportunities
-          to enhance my skill set.{" "}
+          <span className="font-bold">
+            passionate and hardworking software engineer graduate
+          </span>
+          , from Cardiff University. As a quick learner, I&apos;m perpetually on
+          the lookout for opportunities to enhance my skill set.{" "}
           <span className="font-bold">
             I&apos;m all about soaking up new knowledge and unleashing my
             creativity.{" "}

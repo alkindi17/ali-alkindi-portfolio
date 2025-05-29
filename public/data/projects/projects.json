@@ -1,5 +1,42 @@
 [
   {
+    "shortTitle": "Baitak",
+    "fullTitle": "Baitak",
+    "slug": "baitak",
+    "type": "Graduation Project",
+    "yearCreated": "2025",
+    "summary": "A web and mobile platform for chalet bookings in the Middle East, featuring renter, host, and admin portals.",
+    "technologiesUsed": [
+      "React Native",
+      "Next.js",
+      "Supabase",
+      "Figma",
+      "GitLab",
+      "Agile/Scrum"
+    ],
+    "githubUrl": "",
+    "websiteAddress": ""
+  },
+  {
+    "shortTitle": "Chat With Me",
+    "fullTitle": "Chat With Me",
+    "slug": "chat-with-me",
+    "type": "AI App",
+    "yearCreated": "2025",
+    "summary": "AI-powered chat app that simulates conversations with me, letting users explore my background and experiences interactively.",
+    "technologiesUsed": [
+      "Next.js",
+      "TypeScript",
+      "Pinecone",
+      "OpenAI",
+      "Gemini",
+      "LangChain",
+      "Git"
+    ],
+    "githubUrl": "",
+    "websiteAddress": "https://chat.alialkindi.dev"
+  },
+  {
     "shortTitle": "ApplyMate",
     "fullTitle": "ApplyMate | Job Applications Tracker",
     "slug": "applymate",

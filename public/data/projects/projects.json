@@ -18,6 +18,25 @@
     "websiteAddress": ""
   },
   {
+    "shortTitle": "Chat With Me",
+    "fullTitle": "Chat With Me",
+    "slug": "chat-with-me",
+    "type": "AI App",
+    "yearCreated": "2025",
+    "summary": "AI-powered chat app that simulates conversations with me, letting users explore my background and experiences interactively.",
+    "technologiesUsed": [
+      "Next.js",
+      "TypeScript",
+      "Pinecone",
+      "OpenAI",
+      "Gemini",
+      "LangChain",
+      "Git"
+    ],
+    "githubUrl": "",
+    "websiteAddress": "https://chat.alialkindi.dev"
+  },
+  {
     "shortTitle": "ApplyMate",
     "fullTitle": "ApplyMate | Job Applications Tracker",
     "slug": "applymate",

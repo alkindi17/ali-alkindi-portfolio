@@ -25,6 +25,10 @@
       "icon": "java.svg"
     },
     {
+      "name": "Kotlin",
+      "icon": "kotlin.svg"
+    },
+    {
       "name": "SQL",
       "icon": "sql.svg"
     },
@@ -41,16 +45,28 @@
       "icon": "react.svg"
     },
     {
+      "name": "React Native",
+      "icon": "react.svg"
+    },
+    {
       "name": "Next.js",
       "icon": "next.svg"
+    },
+    {
+      "name": "Vue.js",
+      "icon": "vue.svg"
+    },
+    {
+      "name": "Spring Boot",
+      "icon": "spring.svg"
     },
     {
       "name": "Node.js",
       "icon": "nodejs.svg"
     },
     {
-      "name": "JUnit",
-      "icon": "junit5.svg"
+      "name": "LLM",
+      "icon": "openai.svg"
     },
     {
       "name": "Google Firebase",

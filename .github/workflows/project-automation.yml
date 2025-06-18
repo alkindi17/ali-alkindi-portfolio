@@ -51,24 +51,22 @@ jobs:
       - name: Get issue from branch or PR
         env:
           GITHUB_TOKEN: ${{ secrets.GHPROJECT_TOKEN }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
           if [ "${{ github.event_name }}" = "create" ] && [ "${{ github.event.ref_type }}" = "branch" ]; then
-            # Extract issue number from branch name
             issue_number=$(echo "${{ github.event.ref }}" | grep -o '[0-9]\+' | head -1)
             if [ -n "$issue_number" ]; then
               echo "ISSUE_NUMBER=$issue_number" >> $GITHUB_ENV
             fi
           elif [ "${{ github.event_name }}" = "pull_request" ]; then
-            # Get linked issue from PR body or title
-            pr_body="${{ github.event.pull_request.body }}"
-            pr_title="${{ github.event.pull_request.title }}"
-            
+            # Use environment variables instead of direct substitution
             # Look for common patterns: "fixes #123", "closes #123", "#123"
-            issue_number=$(echo "$pr_body $pr_title" | grep -oE '(fixes|closes|resolves|fix|close|resolve)?\s*#[0-9]+' | grep -oE '[0-9]+' | head -1)
+            issue_number=$(echo "$PR_BODY $PR_TITLE" | grep -oE '(fixes|closes|resolves|fix|close|resolve)?\s*#[0-9]+' | grep -oE '[0-9]+' | head -1)
             
             if [ -z "$issue_number" ]; then
               # Fallback: look for any #123 pattern
-              issue_number=$(echo "$pr_body $pr_title" | grep -oE '#[0-9]+' | grep -oE '[0-9]+' | head -1)
+              issue_number=$(echo "$PR_BODY $PR_TITLE" | grep -oE '#[0-9]+' | grep -oE '[0-9]+' | head -1)
             fi
             
             if [ -n "$issue_number" ]; then
@@ -81,11 +79,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GHPROJECT_TOKEN }}
         if: env.ISSUE_NUMBER != ''
         run: |
-          # Get issue node ID and check if it's in the project
           issue_data=$(gh api repos/${{ github.repository }}/issues/$ISSUE_NUMBER)
           issue_id=$(echo "$issue_data" | jq -r '.node_id')
           
-          # Query to check if issue is in the project
           item_data=$(gh api graphql -f query='
             query($project: ID!, $issue: ID!) {
               node(id: $issue) {
@@ -102,7 +98,6 @@ jobs:
               }
             }' -f project=$PROJECT_ID -f issue=$issue_id)
           
-          # Check if any project item matches our project ID
           item_id=$(echo "$item_data" | jq -r --arg project_id "$PROJECT_ID" '.data.node.projectItems.nodes[] | select(.project.id == $project_id) | .id')
           
           if [ -n "$item_id" ] && [ "$item_id" != "null" ]; then

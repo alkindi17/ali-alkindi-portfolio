@@ -83,7 +83,7 @@ jobs:
           issue_id=$(echo "$issue_data" | jq -r '.node_id')
           
           item_data=$(gh api graphql -f query='
-            query($project: ID!, $issue: ID!) {
+            query($issue: ID!) {
               node(id: $issue) {
                 ... on Issue {
                   projectItems(first: 10) {
@@ -96,7 +96,7 @@ jobs:
                   }
                 }
               }
-            }' -f project=$PROJECT_ID -f issue=$issue_id)
+            }' -f issue=$issue_id)
           
           item_id=$(echo "$item_data" | jq -r --arg project_id "$PROJECT_ID" '.data.node.projectItems.nodes[] | select(.project.id == $project_id) | .id')
           

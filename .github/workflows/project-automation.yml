@@ -1,0 +1,37 @@
+name: Project Board Automation
+
+on:
+  create:
+  pull_request:
+    types: [opened, reopened, converted_to_draft, ready_for_review]
+
+jobs:
+  move-to-in-progress:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'create' && github.event.ref_type == 'branch'
+    steps:
+      - uses: alex-page/github-project-automation-plus@v0.8.3
+        with:
+          project: https://github.com/users/alkindi17/projects/3
+          column: In Progress
+          repo-token: ${{ secrets.GHPROJECT_TOKEN }}
+
+  move-pr-status:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Move to In Review (non-draft PR)
+        if: github.event.pull_request.draft == false
+        uses: alex-page/github-project-automation-plus@v0.8.3
+        with:
+          project: https://github.com/users/alkindi17/projects/3
+          column: In Review
+          repo-token: ${{ secrets.GHPROJECT_TOKEN }}
+
+      - name: Move to In Progress (draft PR)
+        if: github.event.pull_request.draft == true
+        uses: alex-page/github-project-automation-plus@v0.8.3
+        with:
+          project: https://github.com/users/alkindi17/projects/3
+          column: In Progress
+          repo-token: ${{ secrets.GHPROJECT_TOKEN }}

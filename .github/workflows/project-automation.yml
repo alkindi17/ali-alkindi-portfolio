@@ -1,4 +1,4 @@
-name: Add PR to project
+name: Move issues in project
 on:
   create:
   pull_request:
@@ -9,7 +9,7 @@ on:
       - converted_to_draft
 
 jobs:
-  track-pr:
+  track-issue:
     runs-on: ubuntu-latest
     steps:
       - name: Get project data
@@ -48,49 +48,82 @@ jobs:
           echo 'IN_PROGRESS_OPTION_ID='$(jq -r '.data.user.projectV2.fields.nodes[] | select(.name== "Status") | .options[] | select(.name=="In Progress") |.id' project_data.json) >> $GITHUB_ENV
           echo 'IN_REVIEW_OPTION_ID='$(jq -r '.data.user.projectV2.fields.nodes[] | select(.name== "Status") | .options[] | select(.name=="In Review") |.id' project_data.json) >> $GITHUB_ENV
 
-      - name: Add PR to project  
+      - name: Get issue from branch or PR
         env:
           GITHUB_TOKEN: ${{ secrets.GHPROJECT_TOKEN }}
         run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            item_id="$( gh api graphql -f query='
-              mutation($project:ID!, $pr:ID!) {
-                addProjectV2ItemById(input: {projectId: $project, contentId: $pr}) {
-                  item {
-                    id
-                  }
-                }
-              }' -f project=$PROJECT_ID -f pr=${{ github.event.pull_request.node_id }} --jq '.data.addProjectV2ItemById.item.id')"
-            echo 'ITEM_ID='$item_id >> $GITHUB_ENV
+          if [ "${{ github.event_name }}" = "create" ] && [ "${{ github.event.ref_type }}" = "branch" ]; then
+            # Extract issue number from branch name
+            issue_number=$(echo "${{ github.event.ref }}" | grep -o '[0-9]\+' | head -1)
+            if [ -n "$issue_number" ]; then
+              echo "ISSUE_NUMBER=$issue_number" >> $GITHUB_ENV
+            fi
+          elif [ "${{ github.event_name }}" = "pull_request" ]; then
+            # Get linked issue from PR body or title
+            pr_body="${{ github.event.pull_request.body }}"
+            pr_title="${{ github.event.pull_request.title }}"
+            
+            # Look for common patterns: "fixes #123", "closes #123", "#123"
+            issue_number=$(echo "$pr_body $pr_title" | grep -oE '(fixes|closes|resolves|fix|close|resolve)?\s*#[0-9]+' | grep -oE '[0-9]+' | head -1)
+            
+            if [ -z "$issue_number" ]; then
+              # Fallback: look for any #123 pattern
+              issue_number=$(echo "$pr_body $pr_title" | grep -oE '#[0-9]+' | grep -oE '[0-9]+' | head -1)
+            fi
+            
+            if [ -n "$issue_number" ]; then
+              echo "ISSUE_NUMBER=$issue_number" >> $GITHUB_ENV
+            fi
           fi
 
-      - name: Add Issue to project (for branch creation)
+      - name: Check if issue is already in project
         env:
           GITHUB_TOKEN: ${{ secrets.GHPROJECT_TOKEN }}
-        if: github.event_name == 'create' && github.event.ref_type == 'branch'
+        if: env.ISSUE_NUMBER != ''
         run: |
-          # Extract issue number from branch name
-          issue_number=$(echo "${{ github.event.ref }}" | grep -o '[0-9]\+' | head -1)
-          if [ -n "$issue_number" ]; then
-            issue_id=$(gh api repos/${{ github.repository }}/issues/$issue_number --jq '.node_id')
-            item_id="$( gh api graphql -f query='
-              mutation($project:ID!, $issue:ID!) {
-                addProjectV2ItemById(input: {projectId: $project, contentId: $issue}) {
-                  item {
-                    id
+          # Get issue node ID and check if it's in the project
+          issue_data=$(gh api repos/${{ github.repository }}/issues/$ISSUE_NUMBER)
+          issue_id=$(echo "$issue_data" | jq -r '.node_id')
+          
+          # Query to check if issue is in the project
+          item_data=$(gh api graphql -f query='
+            query($project: ID!, $issue: ID!) {
+              node(id: $issue) {
+                ... on Issue {
+                  projectItems(first: 10) {
+                    nodes {
+                      id
+                      project {
+                        id
+                      }
+                    }
                   }
                 }
-              }' -f project=$PROJECT_ID -f issue=$issue_id --jq '.data.addProjectV2ItemById.item.id')"
+              }
+            }' -f project=$PROJECT_ID -f issue=$issue_id)
+          
+          # Check if any project item matches our project ID
+          item_id=$(echo "$item_data" | jq -r --arg project_id "$PROJECT_ID" '.data.node.projectItems.nodes[] | select(.project.id == $project_id) | .id')
+          
+          if [ -n "$item_id" ] && [ "$item_id" != "null" ]; then
+            echo "Issue #$ISSUE_NUMBER is in the project"
             echo 'ITEM_ID='$item_id >> $GITHUB_ENV
+            echo 'ISSUE_IN_PROJECT=true' >> $GITHUB_ENV
+          else
+            echo "Issue #$ISSUE_NUMBER is NOT in the project - skipping status update"
+            echo 'ISSUE_IN_PROJECT=false' >> $GITHUB_ENV
           fi
 
       - name: Set status to In Progress
         env:
           GITHUB_TOKEN: ${{ secrets.GHPROJECT_TOKEN }}
         if: |
-          (github.event_name == 'create' && github.event.ref_type == 'branch') ||
-          (github.event_name == 'pull_request' && github.event.pull_request.draft == true)
+          env.ISSUE_IN_PROJECT == 'true' && (
+            (github.event_name == 'create' && github.event.ref_type == 'branch') ||
+            (github.event_name == 'pull_request' && github.event.pull_request.draft == true)
+          )
         run: |
+          echo "Moving issue #$ISSUE_NUMBER to In Progress"
           gh api graphql -f query='
             mutation (
               $project: ID!
@@ -115,8 +148,9 @@ jobs:
       - name: Set status to In Review  
         env:
           GITHUB_TOKEN: ${{ secrets.GHPROJECT_TOKEN }}
-        if: github.event_name == 'pull_request' && github.event.pull_request.draft == false
+        if: env.ISSUE_IN_PROJECT == 'true' && github.event_name == 'pull_request' && github.event.pull_request.draft == false
         run: |
+          echo "Moving issue #$ISSUE_NUMBER to In Review"
           gh api graphql -f query='
             mutation (
               $project: ID!

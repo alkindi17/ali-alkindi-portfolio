@@ -1,0 +1,168 @@
+name: Move issues in project
+on:
+  create:
+  pull_request:
+    types:
+      - opened
+      - reopened  
+      - ready_for_review
+      - converted_to_draft
+
+jobs:
+  track-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get project data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GHPROJECT_TOKEN }}
+          USER: alkindi17
+          PROJECT_NUMBER: 3
+        run: |
+          gh api graphql -f query='
+            query($user: String!, $number: Int!) {
+              user(login: $user){
+                projectV2(number: $number) {
+                  id
+                  fields(first:20) {
+                    nodes {
+                      ... on ProjectV2Field {
+                        id
+                        name
+                      }
+                      ... on ProjectV2SingleSelectField {
+                        id
+                        name
+                        options {
+                          id
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }' -f user=$USER -F number=$PROJECT_NUMBER > project_data.json
+
+          echo 'PROJECT_ID='$(jq -r '.data.user.projectV2.id' project_data.json) >> $GITHUB_ENV
+          echo 'STATUS_FIELD_ID='$(jq -r '.data.user.projectV2.fields.nodes[] | select(.name== "Status") | .id' project_data.json) >> $GITHUB_ENV
+          echo 'IN_PROGRESS_OPTION_ID='$(jq -r '.data.user.projectV2.fields.nodes[] | select(.name== "Status") | .options[] | select(.name=="In Progress") |.id' project_data.json) >> $GITHUB_ENV
+          echo 'IN_REVIEW_OPTION_ID='$(jq -r '.data.user.projectV2.fields.nodes[] | select(.name== "Status") | .options[] | select(.name=="In Review") |.id' project_data.json) >> $GITHUB_ENV
+
+      - name: Get issue from branch or PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GHPROJECT_TOKEN }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          if [ "${{ github.event_name }}" = "create" ] && [ "${{ github.event.ref_type }}" = "branch" ]; then
+            issue_number=$(echo "${{ github.event.ref }}" | grep -o '[0-9]\+' | head -1)
+            if [ -n "$issue_number" ]; then
+              echo "ISSUE_NUMBER=$issue_number" >> $GITHUB_ENV
+            fi
+          elif [ "${{ github.event_name }}" = "pull_request" ]; then
+            # Use environment variables instead of direct substitution
+            # Look for common patterns: "fixes #123", "closes #123", "#123"
+            issue_number=$(echo "$PR_BODY $PR_TITLE" | grep -oE '(fixes|closes|resolves|fix|close|resolve)?\s*#[0-9]+' | grep -oE '[0-9]+' | head -1)
+            
+            if [ -z "$issue_number" ]; then
+              # Fallback: look for any #123 pattern
+              issue_number=$(echo "$PR_BODY $PR_TITLE" | grep -oE '#[0-9]+' | grep -oE '[0-9]+' | head -1)
+            fi
+            
+            if [ -n "$issue_number" ]; then
+              echo "ISSUE_NUMBER=$issue_number" >> $GITHUB_ENV
+            fi
+          fi
+
+      - name: Check if issue is already in project
+        env:
+          GITHUB_TOKEN: ${{ secrets.GHPROJECT_TOKEN }}
+        if: env.ISSUE_NUMBER != ''
+        run: |
+          issue_data=$(gh api repos/${{ github.repository }}/issues/$ISSUE_NUMBER)
+          issue_id=$(echo "$issue_data" | jq -r '.node_id')
+          
+          item_data=$(gh api graphql -f query='
+            query($issue: ID!) {
+              node(id: $issue) {
+                ... on Issue {
+                  projectItems(first: 10) {
+                    nodes {
+                      id
+                      project {
+                        id
+                      }
+                    }
+                  }
+                }
+              }
+            }' -f issue=$issue_id)
+          
+          item_id=$(echo "$item_data" | jq -r --arg project_id "$PROJECT_ID" '.data.node.projectItems.nodes[] | select(.project.id == $project_id) | .id')
+          
+          if [ -n "$item_id" ] && [ "$item_id" != "null" ]; then
+            echo "Issue #$ISSUE_NUMBER is in the project"
+            echo 'ITEM_ID='$item_id >> $GITHUB_ENV
+            echo 'ISSUE_IN_PROJECT=true' >> $GITHUB_ENV
+          else
+            echo "Issue #$ISSUE_NUMBER is NOT in the project - skipping status update"
+            echo 'ISSUE_IN_PROJECT=false' >> $GITHUB_ENV
+          fi
+
+      - name: Set status to In Progress
+        env:
+          GITHUB_TOKEN: ${{ secrets.GHPROJECT_TOKEN }}
+        if: |
+          env.ISSUE_IN_PROJECT == 'true' && (
+            (github.event_name == 'create' && github.event.ref_type == 'branch') ||
+            (github.event_name == 'pull_request' && github.event.pull_request.draft == true)
+          )
+        run: |
+          echo "Moving issue #$ISSUE_NUMBER to In Progress"
+          gh api graphql -f query='
+            mutation (
+              $project: ID!
+              $item: ID!
+              $status_field: ID!
+              $status_value: String!
+            ) {
+              updateProjectV2ItemFieldValue(input: {
+                projectId: $project
+                itemId: $item
+                fieldId: $status_field
+                value: { 
+                  singleSelectOptionId: $status_value
+                }
+              }) {
+                projectV2Item {
+                  id
+                }
+              }
+            }' -f project=$PROJECT_ID -f item=$ITEM_ID -f status_field=$STATUS_FIELD_ID -f status_value=$IN_PROGRESS_OPTION_ID
+
+      - name: Set status to In Review  
+        env:
+          GITHUB_TOKEN: ${{ secrets.GHPROJECT_TOKEN }}
+        if: env.ISSUE_IN_PROJECT == 'true' && github.event_name == 'pull_request' && github.event.pull_request.draft == false
+        run: |
+          echo "Moving issue #$ISSUE_NUMBER to In Review"
+          gh api graphql -f query='
+            mutation (
+              $project: ID!
+              $item: ID!
+              $status_field: ID!
+              $status_value: String!
+            ) {
+              updateProjectV2ItemFieldValue(input: {
+                projectId: $project
+                itemId: $item
+                fieldId: $status_field
+                value: { 
+                  singleSelectOptionId: $status_value
+                }
+              }) {
+                projectV2Item {
+                  id
+                }
+              }
+            }' -f project=$PROJECT_ID -f item=$ITEM_ID -f status_field=$STATUS_FIELD_ID -f status_value=$IN_REVIEW_OPTION_ID

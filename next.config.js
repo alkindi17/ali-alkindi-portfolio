@@ -10,6 +10,15 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "chat.alialkindi.dev",
+        pathname: "/ali-avatar.jpeg",
+      },
+    ],
+  },
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   env: {
     EMAILJS_SERVICE_ID: process.env.EMAILJS_SERVICE_ID,

@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Provider from "@/functions/provider";
+import ChatBubble from "@/components/chat-with-me-popup/ChatBubble";
 
 const dmSans = Montserrat({
   weight: ["400", "500", "700"],
@@ -63,6 +64,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className="">
       <body className={dmSans.className + " " + enriqueta.variable}>
         <Provider>{children}</Provider>
+        <ChatBubble />
         <Analytics />
         <SpeedInsights />
         <GoogleAnalytics gaId="G-TYSFFDBDML" />

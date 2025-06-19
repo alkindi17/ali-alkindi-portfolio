@@ -24,8 +24,16 @@ const ChatBubble = () => {
   return (
     <>
       {isVisible && (
-        <div className="fixed bottom-6 right-6 z-50 flex animate-slideInUp items-start gap-3">
-          <div className="w-80 rounded-lg border border-gray-300 bg-white p-4 dark:border-dark-accent dark:bg-dark-accent-200">
+        <div className="fixed bottom-6 right-6 z-50 animate-slideInUp">
+          <div className="relative w-80 rounded-lg border border-gray-300 bg-white p-4 dark:border-dark-accent dark:bg-dark-accent-200">
+            <button
+              onClick={handleDismiss}
+              className="absolute right-2 top-2 rounded-full p-1 text-gray-400 transition-opacity hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-dark-accent dark:hover:text-gray-200"
+              aria-label="Close chat bubble"
+            >
+              <XMarkIcon className="h-4 w-4" />
+            </button>
+
             <div className="flex flex-col">
               <div className="flex items-start gap-3">
                 <div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-full bg-gray-200">
@@ -37,6 +45,7 @@ const ChatBubble = () => {
                     className="h-full w-full object-cover"
                   />
                 </div>
+
                 <div>
                   <p className="flex items-center font-medium text-gray-900 dark:text-white">
                     Ali Al Kindi
@@ -50,6 +59,7 @@ const ChatBubble = () => {
                   </p>
                 </div>
               </div>
+
               <div className="mt-4 flex justify-end">
                 <Link
                   href="https://chat.alialkindi.dev"
@@ -63,14 +73,6 @@ const ChatBubble = () => {
               </div>
             </div>
           </div>
-
-          <button
-            onClick={handleDismiss}
-            className="rounded-full bg-white p-1 text-gray-500 shadow-md transition-all hover:text-gray-700 hover:shadow-lg dark:bg-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
-            aria-label="Close chat bubble"
-          >
-            <XMarkIcon className="h-5 w-5" />
-          </button>
         </div>
       )}
     </>

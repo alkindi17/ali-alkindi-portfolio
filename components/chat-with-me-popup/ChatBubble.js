@@ -25,7 +25,7 @@ const ChatBubble = () => {
     <>
       {isVisible && (
         <div className="fixed bottom-6 right-6 z-50 animate-slideInUp">
-          <div className="relative w-80 rounded-lg border border-gray-300 bg-white p-4 dark:border-dark-accent dark:bg-dark-accent-200">
+          <div className="relative w-80 rounded-lg border border-gray-300 bg-white p-4 drop-shadow-lg dark:border-dark-accent dark:bg-dark-accent-200">
             <button
               onClick={handleDismiss}
               className="absolute right-2 top-2 rounded-full p-1 text-gray-400 transition-opacity hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-dark-accent dark:hover:text-gray-200"

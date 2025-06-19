@@ -3,10 +3,15 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRightIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowRightIcon,
+  XMarkIcon,
+  ChatBubbleLeftRightIcon,
+} from "@heroicons/react/24/outline";
 
 const ChatBubble = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showChatButton, setShowChatButton] = useState(false);
 
   useEffect(() => {
     // Show the chat bubble after 4 seconds
@@ -19,6 +24,7 @@ const ChatBubble = () => {
 
   const handleDismiss = () => {
     setIsVisible(false);
+    setShowChatButton(true);
   };
 
   return (
@@ -74,6 +80,18 @@ const ChatBubble = () => {
             </div>
           </div>
         </div>
+      )}
+
+      {showChatButton && !isVisible && (
+        <Link
+          href="https://chat.alialkindi.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="secondary-button fixed bottom-6 right-6 z-50 m-0 flex h-12 w-12 items-center justify-center rounded-full p-0 shadow-lg hover:shadow-xl"
+          aria-label="Chat with Ali (AI)"
+        >
+          <ChatBubbleLeftRightIcon className="h-6 w-6" />
+        </Link>
       )}
     </>
   );

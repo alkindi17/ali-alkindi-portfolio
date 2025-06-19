@@ -12,6 +12,7 @@ import {
 
 // Constants
 const CHAT_BUBBLE_DELAY_MS = 4000; // 4 seconds
+const CHAT_URL = "https://chat.alialkindi.dev";
 
 const ChatBubble = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -52,7 +53,7 @@ const ChatBubble = () => {
               <div className="flex items-start gap-3">
                 <div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-full bg-gray-200 max-sm:h-8 max-sm:w-8">
                   <Image
-                    src="https://chat.alialkindi.dev/ali-avatar.jpeg"
+                    src={`${CHAT_URL}/ali-avatar.jpeg`}
                     alt="Ali Al Kindi"
                     width={40}
                     height={40}
@@ -76,7 +77,7 @@ const ChatBubble = () => {
 
               <div className="mt-4 flex justify-end">
                 <Link
-                  href="https://chat.alialkindi.dev"
+                  href={CHAT_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="secondary-button m-0 inline-flex items-center rounded-full px-4 py-1.5 max-sm:px-3 max-sm:py-1 max-sm:text-xs"
@@ -92,7 +93,7 @@ const ChatBubble = () => {
 
       {showChatButton && !isVisible && (
         <Link
-          href="https://chat.alialkindi.dev"
+          href={CHAT_URL}
           target="_blank"
           rel="noopener noreferrer"
           className={`secondary-button fixed right-6 z-50 m-0 flex h-12 w-12 items-center justify-center rounded-full p-0 shadow-lg hover:shadow-xl max-sm:right-4 max-sm:h-10 max-sm:w-10 ${

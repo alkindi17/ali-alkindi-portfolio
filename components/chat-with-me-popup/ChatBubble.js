@@ -10,6 +10,9 @@ import {
   ChatBubbleLeftRightIcon,
 } from "@heroicons/react/24/outline";
 
+// Constants
+const CHAT_BUBBLE_DELAY_MS = 4000; // 4 seconds
+
 const ChatBubble = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showChatButton, setShowChatButton] = useState(false);
@@ -19,10 +22,10 @@ const ChatBubble = () => {
   const isHomePage = pathname === "/";
 
   useEffect(() => {
-    // Show the chat bubble after 4 seconds
+    // Show the chat bubble after delay
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 4000);
+    }, CHAT_BUBBLE_DELAY_MS);
 
     return () => clearTimeout(timer);
   }, []);

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import {
   ArrowRightIcon,
   XMarkIcon,
@@ -12,6 +13,10 @@ import {
 const ChatBubble = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showChatButton, setShowChatButton] = useState(false);
+  const pathname = usePathname();
+
+  // Check if current page is home page
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     // Show the chat bubble after 4 seconds
@@ -87,7 +92,9 @@ const ChatBubble = () => {
           href="https://chat.alialkindi.dev"
           target="_blank"
           rel="noopener noreferrer"
-          className="secondary-button fixed bottom-6 right-6 z-50 m-0 flex h-12 w-12 items-center justify-center rounded-full p-0 shadow-lg hover:shadow-xl"
+          className={`secondary-button fixed right-6 z-50 m-0 flex h-12 w-12 items-center justify-center rounded-full p-0 shadow-lg hover:shadow-xl ${
+            isHomePage ? "bottom-6 max-sm:bottom-14" : "bottom-6"
+          }`}
           aria-label="Chat with Ali (AI)"
         >
           <ChatBubbleLeftRightIcon className="h-6 w-6" />

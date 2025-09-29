@@ -81,6 +81,25 @@
   ],
   "Work": [
     {
+      "year": "Sep 2025 - Present",
+      "position": "Full Stack Developer",
+      "organisation": "Trifork, Oman",
+      "skills": ["Modern Web Frameworks", "Teamwork", "Communication"]
+    },
+    {
+      "year": "Jun 2025 - Present",
+      "position": "Frontend Developer Freelancer",
+      "organisation": "Jawla, Oman",
+      "skills": [
+        "UI/UX Design",
+        "Figma",
+        "TypeScript",
+        "Vue.js",
+        "Teamwork",
+        "Communication"
+      ]
+    },
+    {
       "year": "Jul 2024 - Aug 2024",
       "position": "Frontend Developer Intern",
       "organisation": "Mamun, Oman",

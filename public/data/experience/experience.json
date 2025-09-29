@@ -18,6 +18,13 @@
   ],
   "Certificates": [
     {
+      "year": "Aug 2025",
+      "title": "Bawsala Fellowship Programme",
+      "institution": "Royal Academy of Management, Oman",
+      "skills": ["Leadership", "Teamwork", "Communication"],
+      "link": "data/experience/certificates/bawsala-fellowship-programme-certificate.pdf"
+    },
+    {
       "year": "Mar 2024",
       "title": "Programming Foundations: Software Testing/QA",
       "institution": "LinkedIn Learning",

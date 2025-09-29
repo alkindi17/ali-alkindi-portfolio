@@ -18,6 +18,13 @@
   ],
   "Certificates": [
     {
+      "year": "Aug 2025",
+      "title": "Bawsala Fellowship Programme",
+      "institution": "Royal Academy of Management, Oman",
+      "skills": ["Leadership", "Teamwork", "Communication"],
+      "link": "data/experience/certificates/bawsala-fellowship-programme-certificate.pdf"
+    },
+    {
       "year": "Mar 2024",
       "title": "Programming Foundations: Software Testing/QA",
       "institution": "LinkedIn Learning",
@@ -73,6 +80,25 @@
     }
   ],
   "Work": [
+    {
+      "year": "Sep 2025 - Present",
+      "position": "Full Stack Developer",
+      "organisation": "Trifork, Oman",
+      "skills": ["Modern Web Frameworks", "Teamwork", "Communication"]
+    },
+    {
+      "year": "Jun 2025 - Present",
+      "position": "Frontend Developer Freelancer",
+      "organisation": "Jawla, Oman",
+      "skills": [
+        "UI/UX Design",
+        "Figma",
+        "TypeScript",
+        "Vue.js",
+        "Teamwork",
+        "Communication"
+      ]
+    },
     {
       "year": "Jul 2024 - Aug 2024",
       "position": "Frontend Developer Intern",

@@ -39,6 +39,8 @@ export default function ContactSection() {
         scrollTrigger.kill(); // kill the trigger after the first time
       },
     });
+
+    return () => scrollTrigger.kill();
   }, []);
 
   const handleSubmit = async (e) => {

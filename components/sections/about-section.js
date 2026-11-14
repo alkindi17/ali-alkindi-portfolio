@@ -1,6 +1,6 @@
 import Link from "next/link";
 import PrimaryButton from "../global/PrimaryButton";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect } from "react";
 import gsap, { Power3 } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Peep2 from "@/public/peep-2.svg";
@@ -10,7 +10,6 @@ import DocumentIcon from "public/data/icons/document.svg";
 
 export default function AboutSection() {
   gsap.registerPlugin(ScrollTrigger);
-  const tl = useRef();
 
   // GSAP Animations
   useLayoutEffect(() => {
@@ -22,23 +21,28 @@ export default function AboutSection() {
       ease: Power3.easeOut,
     };
 
-    tl.current = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: "#about",
-          markers: false,
-          scroller: ".overflow-scroll",
-          toggleActions: "restart none none reset",
-        },
-      })
-      .from("#peep-2", {
-        x: -80,
-        opacity: 0,
-        duration: 0.6,
-        ease: Power3.easeInOut,
-      })
-      .from("#about-text", animationOptions, "-=0.2")
-      .from("#about-resume-button", animationOptions, "-=0.4");
+    const animation = gsap.context(() => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: "#about",
+            markers: false,
+            scroller: ".overflow-scroll",
+            toggleActions: "restart none none reset",
+          },
+        })
+        .from("#peep-2", {
+          x: -80,
+          opacity: 0,
+          duration: 0.6,
+          ease: Power3.easeInOut,
+        })
+        .from("#about-text", animationOptions, "-=0.2")
+        .from("#about-resume-button", animationOptions, "-=0.4");
+    });
+
+    // Undo the animation so a re-run starts clean
+    return () => animation.revert();
   }, []);
 
   return (

@@ -1,5 +1,6 @@
 // Field names shared by the contact form and the server action
-export const HONEYPOT_FIELD = "website";
+// A name autofill won't recognise, so real visitors never trip it
+export const HONEYPOT_FIELD = "_gotcha";
 export const FILL_TIME_FIELD = "fillTimeMs";
 
 const MIN_FILL_TIME_MS = 3000;

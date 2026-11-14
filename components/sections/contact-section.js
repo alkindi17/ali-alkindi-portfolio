@@ -79,7 +79,7 @@ export default function ContactSection() {
           aria-hidden="true"
           className="absolute -left-[9999px] h-px w-px overflow-hidden"
         >
-          <label htmlFor={HONEYPOT_FIELD}>Website</label>
+          <label htmlFor={HONEYPOT_FIELD}>Leave this field empty</label>
           <input
             type="text"
             id={HONEYPOT_FIELD}

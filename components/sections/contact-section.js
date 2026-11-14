@@ -1,4 +1,5 @@
-import { sendForm } from "@emailjs/browser";
+import { sendContactMessage } from "@/app/actions/send-contact-message";
+import { FILL_TIME_FIELD, HONEYPOT_FIELD } from "@/functions/contact-form";
 
 import GitHubIcon from "public/data/icons/github.svg";
 import LinkedinIcon from "public/data/icons/linkedin.svg";
@@ -11,8 +12,9 @@ import Typewriter from "typewriter-effect/dist/core";
 
 export default function ContactSection() {
   const [headline, setHeadline] = useState("");
+  const [isSending, setIsSending] = useState(false);
   const typewriterRef = useRef(null);
-  const form = useRef();
+  const formLoadedAt = useRef(Date.now());
 
   const typeHeadline = (text = headline) => {
     typewriterRef.current.deleteAll().typeString(text).start();
@@ -38,55 +40,33 @@ export default function ContactSection() {
         scrollTrigger.kill(); // kill the trigger after the first time
       },
     });
+
+    return () => scrollTrigger.kill();
   }, []);
 
-  // EmailJS
-  const sendEmails = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const form = e.currentTarget;
+
+    // Read the values before the fields are disabled, as FormData skips disabled fields
+    const formData = new FormData(form);
+    formData.set(FILL_TIME_FIELD, String(Date.now() - formLoadedAt.current));
 
     setHeadline("Sending...");
+    setIsSending(true);
 
-    // Clone form to avoid losing input values if reset is called before the email is sent
-    const formData = form.current.cloneNode(true);
+    let ok = false;
+    try {
+      ({ ok } = await sendContactMessage(formData));
+    } catch {
+      // ok stays false
+    }
 
-    // Send confirmation email to the user
-    sendForm(
-      process.env.EMAILJS_SERVICE_ID,
-      process.env.EMAILJS_TEMPLATE_ID_MESSAGE_RECEIVED,
-      formData,
-      {
-        publicKey: process.env.EMAILJS_PUBLIC_KEY,
-      },
-    ).then(
-      () => {
-        setHeadline("Received! Thank you.");
-      },
-      (error) => {
-        setHeadline("Oops! Please try again.");
-      },
-    );
+    setIsSending(false);
+    setHeadline(ok ? "Received! Thank you." : "Oops! Please try again.");
 
-    // Send message to me
-    const sendEmailToMe = (formData) => {
-      sendForm(
-        process.env.EMAILJS_SERVICE_ID,
-        process.env.EMAILJS_TEMPLATE_ID_NEW_MESSAGE,
-        formData,
-        {
-          publicKey: process.env.EMAILJS_PUBLIC_KEY,
-        },
-      ).then(
-        () => {
-          setHeadline("Received! Thank you.");
-        },
-        (error) => {
-          setHeadline("Oops! Please try again.");
-        },
-      );
-    };
-
-    // Reset form
-    e.target.reset();
+    // Keep the text after a failure so the visitor can try again
+    if (ok) form.reset();
   };
 
   return (
@@ -98,10 +78,26 @@ export default function ContactSection() {
         {/* {headline} */}
       </h1>
       <form
-        ref={form}
-        className="mt-8 flex w-96 flex-col gap-4 max-sm:mt-5 max-sm:max-w-xs max-sm:gap-2"
-        onSubmit={sendEmails}
+        className={`mt-8 flex w-96 flex-col gap-4 transition-opacity max-sm:mt-5 max-sm:max-w-xs max-sm:gap-2 ${
+          isSending ? "opacity-60" : ""
+        }`}
+        onSubmit={handleSubmit}
       >
+        {/* Honeypot: hidden from people, but bots fill it in */}
+        <div
+          aria-hidden="true"
+          className="absolute -left-[9999px] h-px w-px overflow-hidden"
+        >
+          <label htmlFor={HONEYPOT_FIELD}>Leave this field empty</label>
+          <input
+            type="text"
+            id={HONEYPOT_FIELD}
+            name={HONEYPOT_FIELD}
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
+
         <div className="relative">
           <input
             type="text"
@@ -110,6 +106,7 @@ export default function ContactSection() {
             className="card peer w-full rounded-lg pt-5 focus:border-blue-600 focus:outline-none focus:ring-0 dark:focus:border-white"
             placeholder=" "
             required
+            disabled={isSending}
           />
           <label
             htmlFor="name"
@@ -127,6 +124,7 @@ export default function ContactSection() {
             className="card peer w-full rounded-lg pt-5 focus:border-blue-600 focus:outline-none focus:ring-0 dark:focus:border-white"
             placeholder=" "
             required
+            disabled={isSending}
           />
           <label
             htmlFor="email"
@@ -144,6 +142,7 @@ export default function ContactSection() {
             className="card peer w-full resize-none rounded-lg pt-5 focus:border-blue-600 focus:outline-none focus:ring-0 dark:focus:border-white"
             placeholder=" "
             required
+            disabled={isSending}
             rows={5}
             maxLength={500}
           ></textarea>
@@ -155,7 +154,10 @@ export default function ContactSection() {
           </label>
         </div>
 
-        <button className="secondary-button rounded-lg py-3">
+        <button
+          className="secondary-button rounded-lg py-3"
+          disabled={isSending}
+        >
           <div type="submit">Send</div>
         </button>
       </form>

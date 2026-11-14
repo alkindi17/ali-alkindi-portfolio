@@ -2,6 +2,12 @@ Inspired by the growing impact of large language models across industries, I dev
 
 The core concept was to create an interactive platform where users can have natural conversations with an AI trained to represent my professional identity. Through thoughtful dialogue, visitors can learn about my technical background, projects, and experiences in a dynamic, personalized way.
 
+## How it works
+
+The app uses retrieval-augmented generation (RAG). When you ask a question, it pulls the relevant facts about me from a vector database and hands them to the model, so the answer comes from my real background instead of a guess. It works with both OpenAI and Gemini models. Your chat history is saved, and guardrails keep the bot on topic.
+
+I built it with Next.js and TypeScript, using LangChain, Pinecone and Supabase.
+
 <div style={{ maxWidth: "500px", margin: "0 auto" }}>
   <video width="100%" autoPlay loop muted playsInline>
     <source src="/data/projects/mdx/vid/chat-with-me.MP4" type="video/mp4" />

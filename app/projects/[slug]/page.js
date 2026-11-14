@@ -57,7 +57,7 @@ export default async function Page({ params }) {
 
   const project = projectsDataJson.find((project) => project.slug === slug);
 
-  const Markdown = await import(`public/data/projects/mdx/${slug}.mdx`)
+  const Markdown = await import(`@/public/data/projects/mdx/${slug}.mdx`)
     .then((res) => res.default)
     .catch(() => () => {});
 

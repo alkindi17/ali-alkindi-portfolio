@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect } from "react";
 import gsap, { Power3 } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitType from "split-type";
@@ -7,14 +7,15 @@ import getCurrentTheme from "@/functions/theme";
 
 export default function HomeSection() {
   gsap.registerPlugin(ScrollTrigger);
-  const tl = useRef();
 
   // GSAP Animations
   useLayoutEffect(() => {
     // Splitting Text
-    new SplitType("#home-text-line-1");
-    new SplitType("#home-text-line-2", { types: "words, chars" });
-    new SplitType("#home-text-line-3");
+    const splits = [
+      new SplitType("#home-text-line-1"),
+      new SplitType("#home-text-line-2", { types: "words, chars" }),
+      new SplitType("#home-text-line-3"),
+    ];
 
     // text animation options
     const textAnimation = {
@@ -25,24 +26,32 @@ export default function HomeSection() {
       stagger: 0.02,
     };
 
-    tl.current = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: "#home",
-          markers: false,
-          scroller: ".overflow-scroll",
-          toggleActions: "restart none none reset",
-        },
-      })
-      .from("#peep-1", {
-        y: 30,
-        opacity: 0,
-        duration: 1.5,
-        ease: Power3.easeOut,
-      })
-      .from("#home-text-line-1 .char", textAnimation, "-=1.2")
-      .from("#home-text-line-2 .char", textAnimation, "-=1.2")
-      .from("#home-text-line-3 .char", textAnimation, "-=1.2");
+    const animation = gsap.context(() => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: "#home",
+            markers: false,
+            scroller: ".overflow-scroll",
+            toggleActions: "restart none none reset",
+          },
+        })
+        .from("#peep-1", {
+          y: 30,
+          opacity: 0,
+          duration: 1.5,
+          ease: Power3.easeOut,
+        })
+        .from("#home-text-line-1 .char", textAnimation, "-=1.2")
+        .from("#home-text-line-2 .char", textAnimation, "-=1.2")
+        .from("#home-text-line-3 .char", textAnimation, "-=1.2");
+    });
+
+    // Undo the animation and text splitting so a re-run starts clean
+    return () => {
+      animation.revert();
+      splits.forEach((split) => split.revert());
+    };
   }, []);
 
   return (
@@ -69,7 +78,7 @@ export default function HomeSection() {
           Ali <span>Al Kindi</span>
         </h1>
         <h6 id="home-text-line-3" className="text-2xl font-bold max-md:text-lg">
-          A Software Engineer
+          A Full-Stack Software Engineer
         </h6>
       </div>
     </div>

@@ -14,7 +14,6 @@ import ChatIcon from "public/data/icons/chat.svg";
 
 export default function NavBar() {
   const [mounted, setMounted] = useState(false);
-  const tl = useRef();
   const navBar = useRef(false);
 
   useEffect(() => {
@@ -23,24 +22,30 @@ export default function NavBar() {
 
   useLayoutEffect(() => {
     if (!mounted) return;
-    tl.current = gsap
-      .timeline()
-      .from(navBar.current, {
-        y: screen.width > 768 ? "-100%" : "+100%",
-        opacity: 0,
-        duration: 1.5,
-        ease: Power3.easeOut,
-      })
-      .from(
-        "#sm-theme-toggle",
-        {
-          y: "-100%",
+
+    const animation = gsap.context(() => {
+      gsap
+        .timeline()
+        .from(navBar.current, {
+          y: screen.width > 768 ? "-100%" : "+100%",
           opacity: 0,
           duration: 1.5,
           ease: Power3.easeOut,
-        },
-        "-=1",
-      );
+        })
+        .from(
+          "#sm-theme-toggle",
+          {
+            y: "-100%",
+            opacity: 0,
+            duration: 1.5,
+            ease: Power3.easeOut,
+          },
+          "-=1",
+        );
+    });
+
+    // Undo the animation so a re-run starts clean
+    return () => animation.revert();
   }, [mounted]);
 
   if (!mounted) {

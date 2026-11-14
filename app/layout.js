@@ -18,11 +18,12 @@ const enriqueta = Enriqueta({
 
 export const metadata = {
   title: "Ali Al Kindi",
-  description: "Ali Al Kindi Portfolio",
+  description:
+    "Ali Al Kindi, Full-Stack Software Engineer. Projects, experience and skills.",
   openGraph: {
     title: "Ali Al Kindi Portfolio",
     description:
-      "Hi, I'm Ali Al Kindi, a Software Engineering student. Check out my portfolio! 🚀",
+      "Hi, I'm Ali Al Kindi, a Full-Stack Software Engineer building healthcare systems at Trifork and helping startups ship. Check out my portfolio! 🚀",
     url: "https://alialkindi.dev",
     images: [
       {
@@ -53,7 +54,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Ali Al Kindi Portfolio",
     description:
-      "Hi, I'm Ali Al Kindi, a Software Engineering student. Check out my portfolio! 🚀",
+      "Hi, I'm Ali Al Kindi, a Full-Stack Software Engineer building healthcare systems at Trifork and helping startups ship. Check out my portfolio! 🚀",
     creator: "@alkindi17",
     images: ["https://alialkindi.dev/data/metadata/og-image.jpg"],
   },

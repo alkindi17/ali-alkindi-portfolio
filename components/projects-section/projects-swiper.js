@@ -12,7 +12,7 @@ export default function ProjectsSwiper() {
   const swiperEl = useRef(null);
 
   useEffect(() => {
-    const swiperEl = document.querySelector("swiper-container");
+    const swiperContainer = swiperEl.current;
 
     // Swiper parameters
     const swiperParams = {
@@ -46,20 +46,26 @@ export default function ProjectsSwiper() {
       loop: true,
     };
 
-    // Initialize swiper
-    Object.assign(swiperEl, swiperParams);
-    swiperEl.initialize();
+    // Initialize swiper only once. Strict Mode runs this effect twice, and
+    // setting the params on a live swiper resets it to one slide per view.
+    if (!swiperContainer.swiper) {
+      Object.assign(swiperContainer, swiperParams);
+      swiperContainer.initialize();
+    }
 
     // Fix loop issue, when there are less slides than slidesPerView * 2,
     // by disabling loop when there are less slides than slidesPerView * 2.
-    addEventListener("resize", () => {
-      const swiper = swiperEl.swiper;
+    const updateLoop = () => {
+      const swiper = swiperContainer.swiper;
       if (swiper.params.slidesPerView * 2 > swiper.slides.length) {
         swiper.params.loop = false;
       } else {
         swiper.params.loop = true;
       }
-    });
+    };
+
+    addEventListener("resize", updateLoop);
+    return () => removeEventListener("resize", updateLoop);
   }, []);
 
   return (

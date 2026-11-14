@@ -12,6 +12,7 @@ import Typewriter from "typewriter-effect/dist/core";
 
 export default function ContactSection() {
   const [headline, setHeadline] = useState("");
+  const [isSending, setIsSending] = useState(false);
   const typewriterRef = useRef(null);
   const formLoadedAt = useRef(Date.now());
 
@@ -45,21 +46,27 @@ export default function ContactSection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const form = e.currentTarget;
 
-    setHeadline("Sending...");
-
-    // Read the values before the form is reset
-    const formData = new FormData(e.target);
+    // Read the values before the fields are disabled, as FormData skips disabled fields
+    const formData = new FormData(form);
     formData.set(FILL_TIME_FIELD, String(Date.now() - formLoadedAt.current));
 
-    e.target.reset();
+    setHeadline("Sending...");
+    setIsSending(true);
 
+    let ok = false;
     try {
-      const { ok } = await sendContactMessage(formData);
-      setHeadline(ok ? "Received! Thank you." : "Oops! Please try again.");
+      ({ ok } = await sendContactMessage(formData));
     } catch {
-      setHeadline("Oops! Please try again.");
+      // ok stays false
     }
+
+    setIsSending(false);
+    setHeadline(ok ? "Received! Thank you." : "Oops! Please try again.");
+
+    // Keep the text after a failure so the visitor can try again
+    if (ok) form.reset();
   };
 
   return (
@@ -71,7 +78,9 @@ export default function ContactSection() {
         {/* {headline} */}
       </h1>
       <form
-        className="mt-8 flex w-96 flex-col gap-4 max-sm:mt-5 max-sm:max-w-xs max-sm:gap-2"
+        className={`mt-8 flex w-96 flex-col gap-4 transition-opacity max-sm:mt-5 max-sm:max-w-xs max-sm:gap-2 ${
+          isSending ? "opacity-60" : ""
+        }`}
         onSubmit={handleSubmit}
       >
         {/* Honeypot: hidden from people, but bots fill it in */}
@@ -97,6 +106,7 @@ export default function ContactSection() {
             className="card peer w-full rounded-lg pt-5 focus:border-blue-600 focus:outline-none focus:ring-0 dark:focus:border-white"
             placeholder=" "
             required
+            disabled={isSending}
           />
           <label
             htmlFor="name"
@@ -114,6 +124,7 @@ export default function ContactSection() {
             className="card peer w-full rounded-lg pt-5 focus:border-blue-600 focus:outline-none focus:ring-0 dark:focus:border-white"
             placeholder=" "
             required
+            disabled={isSending}
           />
           <label
             htmlFor="email"
@@ -131,6 +142,7 @@ export default function ContactSection() {
             className="card peer w-full resize-none rounded-lg pt-5 focus:border-blue-600 focus:outline-none focus:ring-0 dark:focus:border-white"
             placeholder=" "
             required
+            disabled={isSending}
             rows={5}
             maxLength={500}
           ></textarea>
@@ -142,7 +154,10 @@ export default function ContactSection() {
           </label>
         </div>
 
-        <button className="secondary-button rounded-lg py-3">
+        <button
+          className="secondary-button rounded-lg py-3"
+          disabled={isSending}
+        >
           <div type="submit">Send</div>
         </button>
       </form>

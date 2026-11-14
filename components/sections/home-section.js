@@ -69,7 +69,7 @@ export default function HomeSection() {
           Ali <span>Al Kindi</span>
         </h1>
         <h6 id="home-text-line-3" className="text-2xl font-bold max-md:text-lg">
-          A Software Engineer
+          A Full-Stack Software Engineer
         </h6>
       </div>
     </div>

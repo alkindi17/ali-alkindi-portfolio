@@ -18,6 +18,13 @@
   ],
   "Certificates": [
     {
+      "year": "2026",
+      "title": "Student Mentor",
+      "institution": "Bawsala UK x The British Omani Society",
+      "skills": ["Mentoring", "Leadership", "Communication"],
+      "link": "data/experience/certificates/bawsala-student-mentor-certificate.pdf"
+    },
+    {
       "year": "Aug 2025",
       "title": "Bawsala Fellowship Programme",
       "institution": "Royal Academy of Management, Oman",
@@ -84,14 +91,34 @@
       "year": "Sep 2025 - Present",
       "position": "Full Stack Developer",
       "organisation": "Trifork, Oman",
-      "skills": ["Modern Web Frameworks", "Teamwork", "Communication"]
+      "skills": [
+        "Full-Stack Development",
+        "Healthcare Systems",
+        "Code Review",
+        "Mentoring",
+        "Agile",
+        "Client Communication"
+      ]
     },
     {
-      "year": "Jun 2025 - Present",
-      "position": "Frontend Developer Freelancer",
+      "year": "Oct 2026 - Present",
+      "position": "Full Stack Engineer (Freelance)",
+      "organisation": "Jawla, Oman",
+      "skills": [
+        "Backend Development",
+        "REST APIs",
+        "Database Design",
+        "UI/UX Design",
+        "SEO"
+      ]
+    },
+    {
+      "year": "Jun 2025 - Oct 2026",
+      "position": "Frontend Developer (Freelance)",
       "organisation": "Jawla, Oman",
       "skills": [
         "UI/UX Design",
+        "SEO",
         "Figma",
         "TypeScript",
         "Vue.js",

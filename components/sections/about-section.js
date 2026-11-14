@@ -55,24 +55,28 @@ export default function AboutSection() {
 
       {/* Text */}
       <div className="flex h-full basis-1/2 flex-col">
-        <p id="about-text" className="text-justify text-lg max-md:text-sm">
-          I am a{" "}
-          <span className="font-bold">
-            passionate and hardworking Graduate Software Engineer
-          </span>
-          , from Cardiff University. As a quick learner, I&apos;m perpetually on
-          the lookout for opportunities to enhance my skill set.{" "}
-          <span className="font-bold">
-            I&apos;m all about soaking up new knowledge and unleashing my
-            creativity.{" "}
-          </span>{" "}
-          Collaborating with others to crack tough problems is what gets me
-          going.{" "}
-          <span className="font-bold">
-            Bring on the challenges—I&apos;m ready to dive in and make things
-            happen!
-          </span>
-        </p>
+        <div
+          id="about-text"
+          className="flex flex-col gap-4 text-left text-lg max-md:gap-3 max-md:text-sm"
+        >
+          <p>
+            I am a{" "}
+            <span className="font-bold">full-stack software engineer</span>{" "}
+            building national healthcare systems at Trifork, and feeding my
+            startup obsession at Jawla on the side.{" "}
+            <span className="font-bold">
+              Cracking complex problems with the simplest solutions is what gets
+              me going.
+            </span>{" "}
+            I graduated from Cardiff University with First-Class Honours.
+          </p>
+          <p>
+            At the end of the day, I just want to{" "}
+            <span className="font-bold">
+              build things people are glad exist!
+            </span>
+          </p>
+        </div>
 
         <div className="flex flex-col items-center gap-1 sm:flex-row sm:gap-2">
           <Link

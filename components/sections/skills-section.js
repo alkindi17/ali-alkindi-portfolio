@@ -26,7 +26,7 @@ export default function SkillsSection() {
           return (
             <li
               key={index}
-              className="card flex h-16 w-52 items-center gap-4 px-4 py-4 leading-4 max-md:h-14 max-md:gap-1 max-md:text-sm max-sm:h-12 max-sm:w-32 max-sm:pl-1 max-sm:pr-0 max-sm:text-xs"
+              className="card flex h-16 w-52 items-center gap-4 px-4 py-4 leading-4 max-md:h-14 max-md:gap-1 max-md:text-sm max-sm:h-12 max-sm:w-32 max-sm:pr-0 max-sm:pl-1 max-sm:text-xs"
             >
               <skill.icon
                 fill="currentcolor"
@@ -57,7 +57,7 @@ export default function SkillsSection() {
         setActiveTab={setActiveSkill}
       ></Tabs>
 
-      <div className="mt-4 flex max-h-[65%] w-[100%] flex-col overflow-auto border-b border-t border-gray-300 py-4 dark:border-dark-accent-200">
+      <div className="dark:border-dark-accent-200 mt-4 flex max-h-[65%] w-full flex-col overflow-auto border-t border-b border-gray-300 py-4">
         <div className="flex justify-center">{skills}</div>
       </div>
     </div>

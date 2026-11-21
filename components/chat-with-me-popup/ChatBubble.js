@@ -39,11 +39,11 @@ const ChatBubble = () => {
   return (
     <>
       {isVisible && (
-        <div className="fixed bottom-6 right-6 z-50 animate-slideInUp max-sm:bottom-4 max-sm:right-4">
-          <div className="relative w-80 rounded-lg border border-gray-300 bg-white p-4 drop-shadow-lg dark:border-dark-accent dark:bg-dark-accent-200 max-sm:w-72 max-sm:p-3">
+        <div className="animate-slideInUp fixed right-6 bottom-6 z-50 max-sm:right-4 max-sm:bottom-4">
+          <div className="dark:border-dark-accent dark:bg-dark-accent-200 relative w-80 rounded-lg border border-gray-300 bg-white p-4 drop-shadow-lg max-sm:w-72 max-sm:p-3">
             <button
               onClick={handleDismiss}
-              className="absolute right-2 top-2 rounded-full p-1 text-gray-400 transition-opacity hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-dark-accent dark:hover:text-gray-200"
+              className="dark:hover:bg-dark-accent absolute top-2 right-2 rounded-full p-1 text-gray-400 transition-opacity hover:bg-gray-100 hover:text-gray-600 dark:hover:text-gray-200"
               aria-label="Close chat bubble"
             >
               <XMarkIcon className="h-4 w-4" />
@@ -51,7 +51,7 @@ const ChatBubble = () => {
 
             <div className="flex flex-col">
               <div className="flex items-start gap-3">
-                <div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-full bg-gray-200 max-sm:h-8 max-sm:w-8">
+                <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-200 max-sm:h-8 max-sm:w-8">
                   <Image
                     src={`${CHAT_URL}/ali-avatar.jpeg`}
                     alt="Ali Al Kindi"
@@ -62,13 +62,13 @@ const ChatBubble = () => {
                 </div>
 
                 <div>
-                  <p className="flex items-center font-medium text-gray-900 dark:text-white max-sm:text-sm">
+                  <p className="flex items-center font-medium text-gray-900 max-sm:text-sm dark:text-white">
                     Ali Al Kindi
-                    <span className="ml-1.5 inline-flex items-center rounded bg-gray-200 px-2 py-0.5 text-xs font-bold text-gray-600 dark:bg-dark-accent-100 dark:text-gray-100 max-sm:px-1 max-sm:py-0.5 max-sm:text-[10px]">
+                    <span className="dark:bg-dark-accent-100 ml-1.5 inline-flex items-center rounded-sm bg-gray-200 px-2 py-0.5 text-xs font-bold text-gray-600 max-sm:px-1 max-sm:py-0.5 max-sm:text-[10px] dark:text-gray-100">
                       AI
                     </span>
                   </p>
-                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-300 max-sm:text-xs">
+                  <p className="mt-1 text-sm text-gray-600 max-sm:text-xs dark:text-gray-300">
                     Hi there! 👋 <br />
                     Ask me about my projects and experience.
                   </p>

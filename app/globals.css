@@ -1,72 +1,97 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+@config "../tailwind.config.js";
 
-:root {
-  --foreground: #1e1e1e;
-  --foreground-rgb: 30, 30, 30;
-  --background: #fdfdfd;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
+  /* Tailwind v4 dropped the pointer cursor on buttons */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
 }
 
-[data-theme='dark'] {
+@utility primary-button {
+  @apply dark:border-dark-accent dark:bg-dark-accent md:dark:hover:border-dark-accent-100 md:dark:hover:bg-dark-accent-100 rounded-xl border border-(--foreground) px-7 py-2 text-sm font-semibold transition duration-300 ease-in-out max-md:text-xs md:hover:bg-(--foreground) md:hover:text-(--background) md:dark:hover:text-(--foreground);
+}
+
+@utility secondary-button {
+  @apply dark:border-dark-accent-100 dark:bg-dark-accent-100 md:dark:hover:border-dark-accent-200 md:dark:hover:bg-dark-accent-200 rounded-xl border border-(--foreground) bg-(--foreground) px-7 py-2 text-sm font-semibold text-(--background) transition duration-300 ease-in-out max-md:text-xs md:hover:bg-(--background) md:hover:text-(--foreground) dark:text-(--foreground);
+}
+
+@utility card {
+  @apply dark:bg-dark-accent dark:border-dark-accent rounded-lg border border-gray-300;
+}
+
+@layer utilities {
+  :root {
+    --foreground: #1e1e1e;
+    --foreground-rgb: 30, 30, 30;
+    --background: #fdfdfd;
+  }
+
+  [data-theme="dark"] {
     --foreground: #d4d4d4;
     --foreground-rgb: 212, 212, 212;
     --background: #191919;
   }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-}
-
-.active-skill {
-  background-color: var(--foreground);
-  color: var(--background);
-  border-color: var(--foreground);
-  cursor: default;
-}
-
-.non-active-skill {
-  background-color: var(--background);
-  color: var(--foreground);
-  border-color: var(--foreground);
-  opacity: 0.3;
-}
-
-.non-active-skill:hover {
-  @media screen and (min-width: 768px) {
-    opacity: 1;
+  body {
+    color: var(--foreground);
+    background: var(--background);
   }
-}
 
-.custom-pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  height: 100%;
-}
-
-.custom-pagination-bullet {
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 100%;
-  background: rgba(var(--foreground-rgb), 0.2);
-}
-
-.custom-pagination-bullet-active {
-  background: var(--foreground);
-}
-
-@layer components {
-  .primary-button {
-    @apply font-semibold rounded-xl border border-[var(--foreground)] px-7 py-2 text-sm transition duration-300 ease-in-out md:hover:bg-[var(--foreground)] md:hover:text-[var(--background)] dark:border-dark-accent dark:bg-dark-accent md:dark:hover:border-dark-accent-100 md:dark:hover:bg-dark-accent-100 md:dark:hover:text-[var(--foreground)] max-md:text-xs;
+  .active-skill {
+    background-color: var(--foreground);
+    color: var(--background);
+    border-color: var(--foreground);
+    cursor: default;
   }
-  .secondary-button {
-    @apply font-semibold rounded-xl border border-[var(--foreground)] bg-[var(--foreground)] text-[var(--background)] px-7 py-2 text-sm transition duration-300 ease-in-out md:hover:bg-[var(--background)] md:hover:text-[var(--foreground)] dark:text-[var(--foreground)] dark:border-dark-accent-100 dark:bg-dark-accent-100 md:dark:hover:border-dark-accent-200 md:dark:hover:bg-dark-accent-200 max-md:text-xs;
+
+  .non-active-skill {
+    background-color: var(--background);
+    color: var(--foreground);
+    border-color: var(--foreground);
+    opacity: 0.3;
   }
-  .card {
-    @apply border-gray-300 border dark:bg-dark-accent dark:border-dark-accent rounded-lg;
+
+  .non-active-skill:hover {
+    @media screen and (min-width: 768px) {
+      opacity: 1;
+    }
+  }
+
+  .custom-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    height: 100%;
+  }
+
+  .custom-pagination-bullet {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 100%;
+    background: rgba(var(--foreground-rgb), 0.2);
+  }
+
+  .custom-pagination-bullet-active {
+    background: var(--foreground);
   }
 }

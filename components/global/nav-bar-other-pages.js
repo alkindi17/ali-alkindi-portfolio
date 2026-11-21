@@ -1,16 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { useRef } from "react";
 import ThemeToggle from "./theme-toggle";
+import useIsMounted from "@/functions/use-is-mounted";
 
 export default function NavBar() {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useIsMounted();
   const navBar = useRef(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   if (!mounted) {
     return null;

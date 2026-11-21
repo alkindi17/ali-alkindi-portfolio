@@ -5,7 +5,7 @@ import GitHubIcon from "public/data/icons/github.svg";
 import LinkedinIcon from "public/data/icons/linkedin.svg";
 import InstagramIcon from "public/data/icons/instagram.svg";
 import Link from "next/link";
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 import Typewriter from "typewriter-effect/dist/core";
@@ -14,7 +14,12 @@ export default function ContactSection() {
   const [headline, setHeadline] = useState("");
   const [isSending, setIsSending] = useState(false);
   const typewriterRef = useRef(null);
-  const formLoadedAt = useRef(Date.now());
+  const formLoadedAt = useRef(0);
+
+  // Start timing when the form appears, for the bot check
+  useEffect(() => {
+    formLoadedAt.current = Date.now();
+  }, []);
 
   const typeHeadline = (text = headline) => {
     typewriterRef.current.deleteAll().typeString(text).start();
@@ -86,7 +91,7 @@ export default function ContactSection() {
         {/* Honeypot: hidden from people, but bots fill it in */}
         <div
           aria-hidden="true"
-          className="absolute -left-[9999px] h-px w-px overflow-hidden"
+          className="absolute left-[-9999px] h-px w-px overflow-hidden"
         >
           <label htmlFor={HONEYPOT_FIELD}>Leave this field empty</label>
           <input
@@ -103,14 +108,14 @@ export default function ContactSection() {
             type="text"
             id="name"
             name="name"
-            className="card peer w-full rounded-lg pt-5 focus:border-blue-600 focus:outline-none focus:ring-0 dark:focus:border-white"
+            className="card peer w-full rounded-lg pt-5 focus:border-blue-600 focus:ring-0 focus:outline-hidden dark:focus:border-white"
             placeholder=" "
             required
             disabled={isSending}
           />
           <label
             htmlFor="name"
-            className="absolute start-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4 dark:text-gray-400 peer-focus:dark:text-white"
+            className="absolute inset-s-2.5 top-4 z-10 origin-left -translate-y-4 scale-75 transform text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:rtl:left-auto peer-focus:rtl:translate-x-1/4 dark:text-gray-400 dark:peer-focus:text-white"
           >
             Name
           </label>
@@ -121,14 +126,14 @@ export default function ContactSection() {
             type="email"
             id="email"
             name="email"
-            className="card peer w-full rounded-lg pt-5 focus:border-blue-600 focus:outline-none focus:ring-0 dark:focus:border-white"
+            className="card peer w-full rounded-lg pt-5 focus:border-blue-600 focus:ring-0 focus:outline-hidden dark:focus:border-white"
             placeholder=" "
             required
             disabled={isSending}
           />
           <label
             htmlFor="email"
-            className="absolute start-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4 dark:text-gray-400 peer-focus:dark:text-white"
+            className="absolute inset-s-2.5 top-4 z-10 origin-left -translate-y-4 scale-75 transform text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:rtl:left-auto peer-focus:rtl:translate-x-1/4 dark:text-gray-400 dark:peer-focus:text-white"
           >
             Email
           </label>
@@ -139,7 +144,7 @@ export default function ContactSection() {
             type="email"
             id="message"
             name="message"
-            className="card peer w-full resize-none rounded-lg pt-5 focus:border-blue-600 focus:outline-none focus:ring-0 dark:focus:border-white"
+            className="card peer w-full resize-none rounded-lg pt-5 focus:border-blue-600 focus:ring-0 focus:outline-hidden dark:focus:border-white"
             placeholder=" "
             required
             disabled={isSending}
@@ -148,7 +153,7 @@ export default function ContactSection() {
           ></textarea>
           <label
             htmlFor="message"
-            className="absolute start-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4 dark:text-gray-400 peer-focus:dark:text-white"
+            className="absolute inset-s-2.5 top-4 z-10 origin-left -translate-y-4 scale-75 transform text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:rtl:left-auto peer-focus:rtl:translate-x-1/4 dark:text-gray-400 dark:peer-focus:text-white"
           >
             Message
           </label>

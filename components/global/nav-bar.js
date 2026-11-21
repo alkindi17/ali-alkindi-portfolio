@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect } from "react";
 import ThemeToggle from "./theme-toggle";
+import useIsMounted from "@/functions/use-is-mounted";
 import gsap, { Power3 } from "gsap";
 
 import HomeIcon from "public/data/icons/home.svg";
@@ -13,12 +14,8 @@ import MailIcon from "public/data/icons/mail.svg";
 import ChatIcon from "public/data/icons/chat.svg";
 
 export default function NavBar() {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useIsMounted();
   const navBar = useRef(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useLayoutEffect(() => {
     if (!mounted) return;

@@ -5,7 +5,7 @@ import GitHubIcon from "public/data/icons/github.svg";
 import LinkedinIcon from "public/data/icons/linkedin.svg";
 import InstagramIcon from "public/data/icons/instagram.svg";
 import Link from "next/link";
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 import Typewriter from "typewriter-effect/dist/core";
@@ -14,7 +14,12 @@ export default function ContactSection() {
   const [headline, setHeadline] = useState("");
   const [isSending, setIsSending] = useState(false);
   const typewriterRef = useRef(null);
-  const formLoadedAt = useRef(Date.now());
+  const formLoadedAt = useRef(0);
+
+  // Start timing when the form appears, for the bot check
+  useEffect(() => {
+    formLoadedAt.current = Date.now();
+  }, []);
 
   const typeHeadline = (text = headline) => {
     typewriterRef.current.deleteAll().typeString(text).start();

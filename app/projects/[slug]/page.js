@@ -1,4 +1,3 @@
-import { getDisplayName } from "next/dist/shared/lib/utils";
 import Link from "next/link";
 
 import projectsDataJson from "public/data/projects/projects.json";
@@ -14,7 +13,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const project = projectsDataJson.find((project) => project.slug === slug);
 
@@ -53,7 +52,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Page({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const project = projectsDataJson.find((project) => project.slug === slug);
 
